@@ -8122,7 +8122,14 @@ function MyApp(_ref) {
       lineNumber: 27,
       columnNumber: 5
     }
-  })), __jsx(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }), __jsx("title", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 28,
+      columnNumber: 4
+    }
+  }, "Interactive audio ebooks")), __jsx(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_4__["default"], {
     bg: "primary",
     variant: "dark",
     expand: "md",
@@ -8130,7 +8137,7 @@ function MyApp(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29,
+      lineNumber: 30,
       columnNumber: 9
     }
   }, __jsx(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_4__["default"].Brand, {
@@ -8138,7 +8145,7 @@ function MyApp(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30,
+      lineNumber: 31,
       columnNumber: 9
     }
   }, "Interactive audio ebooks"), __jsx(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_4__["default"].Toggle, {
@@ -8146,7 +8153,7 @@ function MyApp(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31,
+      lineNumber: 32,
       columnNumber: 9
     }
   }), __jsx(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_4__["default"].Collapse, {
@@ -8154,7 +8161,7 @@ function MyApp(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32,
+      lineNumber: 33,
       columnNumber: 9
     }
   }, __jsx(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -8162,7 +8169,7 @@ function MyApp(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33,
+      lineNumber: 34,
       columnNumber: 13
     }
   }, __jsx(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_5__["default"].Link, {
@@ -8170,7 +8177,7 @@ function MyApp(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 35,
       columnNumber: 13
     }
   }, "Books"), bookId ? __jsx(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_5__["default"].Link, {
@@ -8178,7 +8185,7 @@ function MyApp(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
+      lineNumber: 36,
       columnNumber: 22
     }
   }, "Current Book") : null, chapterId ? __jsx(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_5__["default"].Link, {
@@ -8186,7 +8193,7 @@ function MyApp(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36,
+      lineNumber: 37,
       columnNumber: 25
     }
   }, "Previous Chapter") : null, chapterId ? __jsx(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_5__["default"].Link, {
@@ -8194,49 +8201,49 @@ function MyApp(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37,
+      lineNumber: 38,
       columnNumber: 25
     }
   }, "Next Chapter") : null))), __jsx("br", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 42,
       columnNumber: 9
     }
   }), __jsx("br", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 42,
       columnNumber: 14
     }
   }), __jsx("br", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 42,
       columnNumber: 19
     }
   }), __jsx("br", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 42,
       columnNumber: 24
     }
   }), __jsx(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_6__["default"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42,
+      lineNumber: 43,
       columnNumber: 9
     }
   }, __jsx(Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43,
+      lineNumber: 44,
       columnNumber: 5
     }
   }))));
