@@ -519,6 +519,18 @@ var e,t=(e=__webpack_require__(/*! querystring */ "./node_modules/querystring-es
 
 /***/ }),
 
+/***/ "./node_modules/next/dist/build/polyfills/fetch/index.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/next/dist/build/polyfills/fetch/index.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* globals self */var fetch=self.fetch.bind(self);module.exports=fetch;module.exports.default=module.exports;
+
+/***/ }),
+
 /***/ "./node_modules/next/dist/build/polyfills/object-assign.js":
 /*!***********************************************************************************************************************!*\
   !*** delegated ./node_modules/next/dist/build/polyfills/object-assign.js from dll-reference dll_2adc2403d89adc16ead0 ***!
@@ -876,7 +888,13 @@ var Link = /*#__PURE__*/function (_react$Component) {
       // "<page>/index.html" directly.
 
 
-      if (false) { var rewriteUrlForNextExport; }
+      if (true) {
+        var rewriteUrlForNextExport = __webpack_require__(/*! ../next-server/lib/router/rewrite-url-for-export */ "./node_modules/next/dist/next-server/lib/router/rewrite-url-for-export.js").rewriteUrlForNextExport;
+
+        if (props.href && typeof __NEXT_DATA__ !== 'undefined' && __NEXT_DATA__.nextExport) {
+          props.href = rewriteUrlForNextExport(props.href);
+        }
+      }
 
       return _react["default"].cloneElement(child, props);
     }
@@ -1790,6 +1808,49 @@ exports.RouterContext = React.createContext(null);
 
 /***/ }),
 
+/***/ "./node_modules/next/dist/next-server/lib/router/rewrite-url-for-export.js":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/next/dist/next-server/lib/router/rewrite-url-for-export.js ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _slicedToArray = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function rewriteUrlForNextExport(url) {
+  var _url$split = url.split('#'),
+      _url$split2 = _slicedToArray(_url$split, 2),
+      pathname = _url$split2[0],
+      hash = _url$split2[1]; // tslint:disable-next-line
+
+
+  var _pathname$split = pathname.split('?'),
+      _pathname$split2 = _slicedToArray(_pathname$split, 2),
+      path = _pathname$split2[0],
+      qs = _pathname$split2[1];
+
+  if (path) {
+    path = path.replace(/\/$/, ''); // Append a trailing slash if this path does not have an extension
+
+    if (!/\.[^/]+\/?$/.test(path)) path += "/";
+  }
+
+  if (qs) path += '?' + qs;
+  if (hash) path += '#' + hash;
+  return path;
+}
+
+exports.rewriteUrlForNextExport = rewriteUrlForNextExport;
+
+/***/ }),
+
 /***/ "./node_modules/next/dist/next-server/lib/router/router.js":
 /*!*****************************************************************!*\
   !*** ./node_modules/next/dist/next-server/lib/router/router.js ***!
@@ -2114,7 +2175,14 @@ var Router = /*#__PURE__*/function () {
         var as = typeof _as === 'object' ? utils_1.formatWithValidation(_as) : _as; // Add the ending slash to the paths. So, we can serve the
         // "<page>/index.html" directly for the SSR page.
 
-        if (false) { var rewriteUrlForNextExport; }
+        if (true) {
+          var rewriteUrlForNextExport = __webpack_require__(/*! ./rewrite-url-for-export */ "./node_modules/next/dist/next-server/lib/router/rewrite-url-for-export.js").rewriteUrlForNextExport; // @ts-ignore this is temporarily global (attached to window)
+
+
+          if (__NEXT_DATA__.nextExport) {
+            as = rewriteUrlForNextExport(as);
+          }
+        }
 
         _this2.abortComponentLoad(as); // If the url change is only related to a hash change
         // We should not proceed. We should only change the state.
@@ -2575,9 +2643,11 @@ var Router = /*#__PURE__*/function () {
   }], [{
     key: "_rewriteUrlForNextExport",
     value: function _rewriteUrlForNextExport(url) {
-      if (false) { var rewriteUrlForNextExport; } else {
-        return url;
-      }
+      if (true) {
+        var rewriteUrlForNextExport = __webpack_require__(/*! ./rewrite-url-for-export */ "./node_modules/next/dist/next-server/lib/router/rewrite-url-for-export.js").rewriteUrlForNextExport;
+
+        return rewriteUrlForNextExport(url);
+      } else {}
     }
   }]);
 
@@ -5134,12 +5204,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var next_config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next/config */ "./node_modules/next/dist/next-server/lib/runtime-config.js");
-/* harmony import */ var next_config__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_config__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! next/dynamic */ "./node_modules/next/dist/next-server/lib/dynamic.js");
-/* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_dynamic__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _prep_utils_json_59_json__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../prep-utils/json/59.json */ "./prep-utils/json/59.json");
-var _prep_utils_json_59_json__WEBPACK_IMPORTED_MODULE_6___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../../prep-utils/json/59.json */ "./prep-utils/json/59.json", 1);
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! isomorphic-unfetch */ "./node_modules/next/dist/build/polyfills/fetch/index.js");
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var next_config__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! next/config */ "./node_modules/next/dist/next-server/lib/runtime-config.js");
+/* harmony import */ var next_config__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_config__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! next/dynamic */ "./node_modules/next/dist/next-server/lib/dynamic.js");
+/* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(next_dynamic__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _prep_utils_json_59_json__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../prep-utils/json/59.json */ "./prep-utils/json/59.json");
+var _prep_utils_json_59_json__WEBPACK_IMPORTED_MODULE_7___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../../prep-utils/json/59.json */ "./prep-utils/json/59.json", 1);
 
 
 var _this = undefined,
@@ -5152,7 +5224,8 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 
-var _getConfig = next_config__WEBPACK_IMPORTED_MODULE_4___default()(),
+
+var _getConfig = next_config__WEBPACK_IMPORTED_MODULE_5___default()(),
     publicRuntimeConfig = _getConfig.publicRuntimeConfig;
 
 var basePath = publicRuntimeConfig.basePath;
@@ -5197,24 +5270,17 @@ var Book = function Book() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37,
+      lineNumber: 38,
       columnNumber: 5
     }
-  }, __jsx("b", {
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 37,
-      columnNumber: 9
-    }
-  }, "Book:"), bookData.title), __jsx("a", {
+  }, bookData.title), __jsx("a", {
     href: bookData.link,
     target: "_blank",
     rel: "noopener noreferrer",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
+      lineNumber: 39,
       columnNumber: 5
     }
   }, "LibriVox"), " | ", __jsx("a", {
@@ -5224,14 +5290,14 @@ var Book = function Book() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
+      lineNumber: 39,
       columnNumber: 86
     }
   }, "Gutenberg"), __jsx("br", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
+      lineNumber: 41,
       columnNumber: 5
     }
   }), __jsx("img", {
@@ -5243,7 +5309,7 @@ var Book = function Book() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 42,
       columnNumber: 5
     }
   }), __jsx("img", {
@@ -5255,7 +5321,7 @@ var Book = function Book() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42,
+      lineNumber: 43,
       columnNumber: 5
     }
   }), __jsx("img", {
@@ -5267,7 +5333,7 @@ var Book = function Book() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43,
+      lineNumber: 44,
       columnNumber: 5
     }
   }), __jsx("p", {
@@ -5313,6 +5379,21 @@ var Book = function Book() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Book);
+
+Book.getInitialProps = function _callee(ctx) {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function _callee$(_context2) {
+    while (1) {
+      switch (_context2.prev = _context2.next) {
+        case 0:
+          return _context2.abrupt("return", {});
+
+        case 1:
+        case "end":
+          return _context2.stop();
+      }
+    }
+  }, null, null, null, Promise);
+};
 
 /***/ }),
 
@@ -5362,7 +5443,7 @@ module.exports = JSON.parse("{\"gutembergId\":76,\"librivoxBookId\":59,\"title\"
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!************************************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fbooks%2F%5BbookId%5D&absolutePagePath=%2FUsers%2Fpassarellip%2FCODE%2FPERSONAL%2Finteractive-audio-ebook-nextjs%2Fpages%2Fbooks%2F%5BbookId%5D.js ***!
   \************************************************************************************************************************************************************************************************/
@@ -5385,5 +5466,5 @@ module.exports = dll_2adc2403d89adc16ead0;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]);
+},[[4,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=[bookId].js.map
