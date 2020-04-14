@@ -33,7 +33,7 @@ const Book =  () => {
       <Col xs={{span:12, order:2}} sm={{span:6, order:1}} md={{span:6, order:1}} lg={{span:6, order:1}} xl={{span:6, order:1}}>
         <h3>Chapters</h3>
       <ul>{
-        bookData.chapters.map((chapter) => (
+        bookData && bookData.chapters.map((chapter) => (
         <li>
           <Link href={`${basePath}/books/[bookId]/[chapterId]`} as={`${basePath}/books/${bookId}/${chapter.chapter}`}>
           <a>{chapter.title} - {chapter.duration} </a> 
