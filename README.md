@@ -34,4 +34,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 <!-- Adding a new book
 
+ npm run start:add 3881
+
+ librivox id
  -->
+
+
+ <!-- https://docs.google.com/document/d/1-vl6xtxyHv7osN5B3NZ_T1QYiHfyJU158pOtASikkJQ/edit#heading=h.1d0v9z14nzx6
+  -->
