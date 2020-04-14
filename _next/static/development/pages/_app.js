@@ -8126,6 +8126,7 @@ function MyApp(_ref) {
     bg: "primary",
     variant: "dark",
     expand: "md",
+    fixed: "top",
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -8180,40 +8181,62 @@ function MyApp(_ref) {
       lineNumber: 35,
       columnNumber: 22
     }
-  }, "Book: ", bookId) : null, chapterId ? __jsx(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_5__["default"].Link, {
-    href: "".concat(basePath, "/books/").concat(bookId, "/").concat(chapterId),
+  }, "Current Book") : null, chapterId ? __jsx(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_5__["default"].Link, {
+    href: "".concat(basePath, "/books/").concat(bookId, "/").concat(chapterId - 1),
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 36,
       columnNumber: 25
     }
-  }, "Chapter: ", chapterId) : null))), __jsx("br", {
+  }, "Previous Chapter") : null, chapterId ? __jsx(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_5__["default"].Link, {
+    href: "".concat(basePath, "/books/").concat(bookId, "/").concat(chapterId + 1),
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
-      columnNumber: 9
+      lineNumber: 37,
+      columnNumber: 25
     }
-  }), __jsx("br", {
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 40,
-      columnNumber: 14
-    }
-  }), __jsx(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }, "Next Chapter") : null))), __jsx("br", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 41,
       columnNumber: 9
     }
-  }, __jsx(Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
+  }), __jsx("br", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 41,
+      columnNumber: 14
+    }
+  }), __jsx("br", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 41,
+      columnNumber: 19
+    }
+  }), __jsx("br", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 41,
+      columnNumber: 24
+    }
+  }), __jsx(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_6__["default"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 42,
+      columnNumber: 9
+    }
+  }, __jsx(Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43,
       columnNumber: 5
     }
   }))));
