@@ -1,8 +1,7 @@
 {
-  "name": "interactive-audio-ebook-nextjs",
+  "name": "interactive-audio-ebook",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://pietrop.github.io/interactive-audio-ebook-nextjs",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -12,10 +11,20 @@
     "start:transcribe": "node ./prep-utils/index.js",
     "deploy": "rm -rf node_modules/.cache && rimraf out && next build && next export && touch out/.nojekyll && gh-pages -d out -t true"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pietrop/interactive-audio-ebook"
+  },
+  "author": "Pietro Passarelli <pietro.passarelli@gmail.com> (http://pietropassarelli.com)",
+  "license": "MIT",
+  "homepage": "http://pietropassarelli.com/interactive-audio-ebook",
   "dependencies": {
+    "bootswatch": "^4.4.1",
     "gh-pages": "^2.2.0",
+    "isomorphic-unfetch": "^3.0.0",
     "next": "9.3.4",
     "react": "16.13.1",
+    "react-bootstrap": "^1.0.0",
     "react-dom": "16.13.1",
     "rimraf": "^3.0.2",
     "save-dev": "0.0.1-security"

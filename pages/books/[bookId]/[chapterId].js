@@ -9,10 +9,12 @@ const Chapter = () => {
   const router = useRouter()
   const { chapterId, bookId } = router.query
   const [chapterData, setChapterData] = useState();
+  const [bookTitle, setBookTitle] = useState("");
   getData(bookId).then((res)=>{
     console.log('data 59', res);
     // setBookData(res);
     console.log('chapterId',chapterId)
+    setBookTitle(res.title);
     // adjusting chapter id with array index
     const currentChapter = res.chapters[parseInt(chapterId)-1];
     setChapterData(currentChapter)
@@ -192,8 +194,7 @@ return (<>
   <style jsx global>{`
   
   `}</style>
-
-  <h2>{chapterData && chapterData.title} </h2>
+    <h2>{chapterData && chapterData.title} - {bookTitle&&bookTitle}</h2>
   {chapterData && chapterData.duration} 
   {chapterData && ( <audio src={chapterData.url} controls type={chapterData.type} /> )}
  
@@ -203,3 +204,9 @@ return (<>
 }
 
 export default Chapter
+
+Chapter.getInitialProps = async ctx => {
+    // const res = await fetch('https://api.github.com/repos/zeit/next.js')
+    // const json = await res.json()
+    return { }
+}

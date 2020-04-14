@@ -1,5 +1,8 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import getConfig from 'next/config';
+const { publicRuntimeConfig } = getConfig();
+const basePath = publicRuntimeConfig.basePath;
 
 const Home = () => (
   <div className="container">
@@ -10,7 +13,7 @@ const Home = () => (
 
     <main>
       <h1>Interactive audio ebooks</h1>
-      <Link href="/books">
+      <Link href={`${basePath}/books`}>
         <a>Books</a>
       </Link>
 
