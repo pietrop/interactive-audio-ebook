@@ -34,7 +34,9 @@ export default function MyApp({ Component, pageProps }) {
             <Nav className="mr-auto">
             <Nav.Link href={`${basePath}/books`}>Books</Nav.Link>
             {bookId? <Nav.Link href={`${basePath}/books/${bookId}`}>Current Book</Nav.Link> :null}
+            {/* TODO: Should not show if it's first chapter */}
             {chapterId? <Nav.Link href={`${basePath}/books/${bookId}/${parseInt(chapterId)-1}`}>Previous Chapter</Nav.Link> :null}
+            {/* TODO: Should not show if it's last chapter */}
             {chapterId? <Nav.Link href={`${basePath}/books/${bookId}/${parseInt(chapterId)+1}`}>Next Chapter</Nav.Link> :null}
             </Nav>
         </Navbar.Collapse>

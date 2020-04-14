@@ -39,7 +39,8 @@ module.exports = {
       // const data = await res.json();
       // const books = data.map(entry => entry);
   
-      booksFileNames.forEach(bookFileName => {
+      booksFileNames.filter((fileName)=>{fileName!=='index.json'}).forEach(bookFileName => {
+  
         const bookId = parseId(bookFileName);
         // Static pages for books
         paths[`/books/${bookId}`] = { page: `/books/[bookId]`, query: { bookId: bookId} };
