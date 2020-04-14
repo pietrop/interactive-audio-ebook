@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/books/[bookId]/[chapterId].js"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/books.js"],{
 
 /***/ "./node_modules/@babel/runtime/helpers/arrayWithHoles.js":
 /*!***************************************************************!*\
@@ -12,6 +12,25 @@ function _arrayWithHoles(arr) {
 }
 
 module.exports = _arrayWithHoles;
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/assertThisInitialized.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/assertThisInitialized.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+module.exports = _assertThisInitialized;
 
 /***/ }),
 
@@ -99,6 +118,52 @@ function _createClass(Constructor, protoProps, staticProps) {
 }
 
 module.exports = _createClass;
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/getPrototypeOf.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/getPrototypeOf.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _getPrototypeOf(o) {
+  module.exports = _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+module.exports = _getPrototypeOf;
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/inherits.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/inherits.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var setPrototypeOf = __webpack_require__(/*! ./setPrototypeOf */ "./node_modules/@babel/runtime/helpers/setPrototypeOf.js");
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) setPrototypeOf(subClass, superClass);
+}
+
+module.exports = _inherits;
 
 /***/ }),
 
@@ -240,6 +305,29 @@ module.exports = _nonIterableRest;
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var _typeof = __webpack_require__(/*! ../helpers/typeof */ "./node_modules/@babel/runtime/helpers/typeof.js");
+
+var assertThisInitialized = __webpack_require__(/*! ./assertThisInitialized */ "./node_modules/@babel/runtime/helpers/assertThisInitialized.js");
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return assertThisInitialized(self);
+}
+
+module.exports = _possibleConstructorReturn;
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime/helpers/setPrototypeOf.js":
 /*!***************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/setPrototypeOf.js ***!
@@ -320,6 +408,104 @@ module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/
 
 /***/ }),
 
+/***/ "./node_modules/function-bind/implementation.js":
+/*!******************************************************!*\
+  !*** ./node_modules/function-bind/implementation.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/* eslint no-invalid-this: 1 */
+
+var ERROR_MESSAGE = 'Function.prototype.bind called on incompatible ';
+var slice = Array.prototype.slice;
+var toStr = Object.prototype.toString;
+var funcType = '[object Function]';
+
+module.exports = function bind(that) {
+    var target = this;
+    if (typeof target !== 'function' || toStr.call(target) !== funcType) {
+        throw new TypeError(ERROR_MESSAGE + target);
+    }
+    var args = slice.call(arguments, 1);
+
+    var bound;
+    var binder = function () {
+        if (this instanceof bound) {
+            var result = target.apply(
+                this,
+                args.concat(slice.call(arguments))
+            );
+            if (Object(result) === result) {
+                return result;
+            }
+            return this;
+        } else {
+            return target.apply(
+                that,
+                args.concat(slice.call(arguments))
+            );
+        }
+    };
+
+    var boundLength = Math.max(0, target.length - args.length);
+    var boundArgs = [];
+    for (var i = 0; i < boundLength; i++) {
+        boundArgs.push('$' + i);
+    }
+
+    bound = Function('binder', 'return function (' + boundArgs.join(',') + '){ return binder.apply(this,arguments); }')(binder);
+
+    if (target.prototype) {
+        var Empty = function Empty() {};
+        Empty.prototype = target.prototype;
+        bound.prototype = new Empty();
+        Empty.prototype = null;
+    }
+
+    return bound;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/function-bind/index.js":
+/*!*********************************************!*\
+  !*** ./node_modules/function-bind/index.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var implementation = __webpack_require__(/*! ./implementation */ "./node_modules/function-bind/implementation.js");
+
+module.exports = Function.prototype.bind || implementation;
+
+
+/***/ }),
+
+/***/ "./node_modules/has/src/index.js":
+/*!***************************************!*\
+  !*** ./node_modules/has/src/index.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var bind = __webpack_require__(/*! function-bind */ "./node_modules/function-bind/index.js");
+
+module.exports = bind.call(Function.call, Object.prototype.hasOwnProperty);
+
+
+/***/ }),
+
 /***/ "./node_modules/native-url/dist/index.js":
 /*!***********************************************!*\
   !*** ./node_modules/native-url/dist/index.js ***!
@@ -333,26 +519,408 @@ var e,t=(e=__webpack_require__(/*! querystring */ "./node_modules/querystring-es
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fbooks%2F%5BbookId%5D%2F%5BchapterId%5D&absolutePagePath=%2FUsers%2Fpassarellip%2FCODE%2FPERSONAL%2Finteractive-audio-ebook-nextjs%2Fpages%2Fbooks%2F%5BbookId%5D%2F%5BchapterId%5D.js!./":
-/*!********************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fbooks%2F%5BbookId%5D%2F%5BchapterId%5D&absolutePagePath=%2FUsers%2Fpassarellip%2FCODE%2FPERSONAL%2Finteractive-audio-ebook-nextjs%2Fpages%2Fbooks%2F%5BbookId%5D%2F%5BchapterId%5D.js ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/next/dist/build/polyfills/object-assign.js":
+/*!***********************************************************************************************************************!*\
+  !*** delegated ./node_modules/next/dist/build/polyfills/object-assign.js from dll-reference dll_2adc2403d89adc16ead0 ***!
+  \***********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(/*! dll-reference dll_2adc2403d89adc16ead0 */ "dll-reference dll_2adc2403d89adc16ead0"))("./node_modules/next/dist/build/polyfills/object-assign.js");
+
+/***/ }),
+
+/***/ "./node_modules/next/dist/build/polyfills/object.assign/index.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/next/dist/build/polyfills/object.assign/index.js ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+var assign=Object.assign.bind(Object);function g(){return assign;}Object.defineProperties(g(),{implementation:{get:g},shim:{value:g},getPolyfill:{value:g}});module.exports=g();
+
+/***/ }),
+
+/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fbooks&absolutePagePath=%2FUsers%2Fpassarellip%2FCODE%2FPERSONAL%2Finteractive-audio-ebook-nextjs%2Fpages%2Fbooks%2Findex.js!./":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fbooks&absolutePagePath=%2FUsers%2Fpassarellip%2FCODE%2FPERSONAL%2Finteractive-audio-ebook-nextjs%2Fpages%2Fbooks%2Findex.js ***!
+  \**********************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-    (window.__NEXT_P=window.__NEXT_P||[]).push(["/books/[bookId]/[chapterId]", function() {
-      var mod = __webpack_require__(/*! ./pages/books/[bookId]/[chapterId].js */ "./pages/books/[bookId]/[chapterId].js")
+    (window.__NEXT_P=window.__NEXT_P||[]).push(["/books", function() {
+      var mod = __webpack_require__(/*! ./pages/books/index.js */ "./pages/books/index.js")
       if(true) {
-        module.hot.accept(/*! ./pages/books/[bookId]/[chapterId].js */ "./pages/books/[bookId]/[chapterId].js", function() {
-          if(!next.router.components["/books/[bookId]/[chapterId]"]) return
-          var updatedPage = __webpack_require__(/*! ./pages/books/[bookId]/[chapterId].js */ "./pages/books/[bookId]/[chapterId].js")
-          next.router.update("/books/[bookId]/[chapterId]", updatedPage)
+        module.hot.accept(/*! ./pages/books/index.js */ "./pages/books/index.js", function() {
+          if(!next.router.components["/books"]) return
+          var updatedPage = __webpack_require__(/*! ./pages/books/index.js */ "./pages/books/index.js")
+          next.router.update("/books", updatedPage)
         })
       }
       return mod
     }]);
   
+
+/***/ }),
+
+/***/ "./node_modules/next/dist/client/link.js":
+/*!***********************************************!*\
+  !*** ./node_modules/next/dist/client/link.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _classCallCheck = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
+
+var _createClass = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
+
+var _inherits = __webpack_require__(/*! @babel/runtime/helpers/inherits */ "./node_modules/@babel/runtime/helpers/inherits.js");
+
+var _possibleConstructorReturn = __webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js");
+
+var _getPrototypeOf = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/getPrototypeOf.js");
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+var _interopRequireWildcard = __webpack_require__(/*! @babel/runtime/helpers/interopRequireWildcard */ "./node_modules/@babel/runtime/helpers/interopRequireWildcard.js");
+
+exports.__esModule = true;
+exports["default"] = void 0;
+
+var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _url = __webpack_require__(/*! url */ "./node_modules/native-url/dist/index.js");
+
+var _utils = __webpack_require__(/*! ../next-server/lib/utils */ "./node_modules/next/dist/next-server/lib/utils.js");
+
+var _router = _interopRequireDefault(__webpack_require__(/*! ./router */ "./node_modules/next/dist/client/router.js"));
+
+function isLocal(href) {
+  var url = (0, _url.parse)(href, false, true);
+  var origin = (0, _url.parse)((0, _utils.getLocationOrigin)(), false, true);
+  return !url.host || url.protocol === origin.protocol && url.host === origin.host;
+}
+
+function memoizedFormatUrl(formatFunc) {
+  var lastHref = null;
+  var lastAs = null;
+  var lastResult = null;
+  return function (href, as) {
+    if (lastResult && href === lastHref && as === lastAs) {
+      return lastResult;
+    }
+
+    var result = formatFunc(href, as);
+    lastHref = href;
+    lastAs = as;
+    lastResult = result;
+    return result;
+  };
+}
+
+function formatUrl(url) {
+  return url && typeof url === 'object' ? (0, _utils.formatWithValidation)(url) : url;
+}
+
+var observer;
+var listeners = new Map();
+var IntersectionObserver = true ? window.IntersectionObserver : undefined;
+var prefetched = {};
+
+function getObserver() {
+  // Return shared instance of IntersectionObserver if already created
+  if (observer) {
+    return observer;
+  } // Only create shared IntersectionObserver if supported in browser
+
+
+  if (!IntersectionObserver) {
+    return undefined;
+  }
+
+  return observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!listeners.has(entry.target)) {
+        return;
+      }
+
+      var cb = listeners.get(entry.target);
+
+      if (entry.isIntersecting || entry.intersectionRatio > 0) {
+        observer.unobserve(entry.target);
+        listeners["delete"](entry.target);
+        cb();
+      }
+    });
+  }, {
+    rootMargin: '200px'
+  });
+}
+
+var listenToIntersections = function listenToIntersections(el, cb) {
+  var observer = getObserver();
+
+  if (!observer) {
+    return function () {};
+  }
+
+  observer.observe(el);
+  listeners.set(el, cb);
+  return function () {
+    try {
+      observer.unobserve(el);
+    } catch (err) {
+      console.error(err);
+    }
+
+    listeners["delete"](el);
+  };
+};
+
+var Link = /*#__PURE__*/function (_react$Component) {
+  _inherits(Link, _react$Component);
+
+  var _super = _createSuper(Link);
+
+  function Link(props) {
+    var _this;
+
+    _classCallCheck(this, Link);
+
+    _this = _super.call(this, props);
+    _this.p = void 0;
+
+    _this.cleanUpListeners = function () {};
+
+    _this.formatUrls = memoizedFormatUrl(function (href, asHref) {
+      return {
+        href: formatUrl(href),
+        as: asHref ? formatUrl(asHref) : asHref
+      };
+    });
+
+    _this.linkClicked = function (e) {
+      var _e$currentTarget = e.currentTarget,
+          nodeName = _e$currentTarget.nodeName,
+          target = _e$currentTarget.target;
+
+      if (nodeName === 'A' && (target && target !== '_self' || e.metaKey || e.ctrlKey || e.shiftKey || e.nativeEvent && e.nativeEvent.which === 2)) {
+        // ignore click for new tab / new window behavior
+        return;
+      }
+
+      var _this$formatUrls = _this.formatUrls(_this.props.href, _this.props.as),
+          href = _this$formatUrls.href,
+          as = _this$formatUrls.as;
+
+      if (!isLocal(href)) {
+        // ignore click if it's outside our scope (e.g. https://google.com)
+        return;
+      }
+
+      var pathname = window.location.pathname;
+      href = (0, _url.resolve)(pathname, href);
+      as = as ? (0, _url.resolve)(pathname, as) : href;
+      e.preventDefault(); //  avoid scroll for urls with anchor refs
+
+      var scroll = _this.props.scroll;
+
+      if (scroll == null) {
+        scroll = as.indexOf('#') < 0;
+      } // replace state instead of push if prop is present
+
+
+      _router["default"][_this.props.replace ? 'replace' : 'push'](href, as, {
+        shallow: _this.props.shallow
+      }).then(function (success) {
+        if (!success) return;
+
+        if (scroll) {
+          window.scrollTo(0, 0);
+          document.body.focus();
+        }
+      });
+    };
+
+    if (true) {
+      if (props.prefetch) {
+        console.warn('Next.js auto-prefetches automatically based on viewport. The prefetch attribute is no longer needed. More: https://err.sh/zeit/next.js/prefetch-true-deprecated');
+      }
+    }
+
+    _this.p = props.prefetch !== false;
+    return _this;
+  }
+
+  _createClass(Link, [{
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.cleanUpListeners();
+    }
+  }, {
+    key: "getPaths",
+    value: function getPaths() {
+      var pathname = window.location.pathname;
+
+      var _this$formatUrls2 = this.formatUrls(this.props.href, this.props.as),
+          parsedHref = _this$formatUrls2.href,
+          parsedAs = _this$formatUrls2.as;
+
+      var resolvedHref = (0, _url.resolve)(pathname, parsedHref);
+      return [resolvedHref, parsedAs ? (0, _url.resolve)(pathname, parsedAs) : resolvedHref];
+    }
+  }, {
+    key: "handleRef",
+    value: function handleRef(ref) {
+      var _this2 = this;
+
+      if (this.p && IntersectionObserver && ref && ref.tagName) {
+        this.cleanUpListeners();
+        var isPrefetched = prefetched[this.getPaths().join( // Join on an invalid URI character
+        '%')];
+
+        if (!isPrefetched) {
+          this.cleanUpListeners = listenToIntersections(ref, function () {
+            _this2.prefetch();
+          });
+        }
+      }
+    } // The function is memoized so that no extra lifecycles are needed
+    // as per https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html
+
+  }, {
+    key: "prefetch",
+    value: function prefetch(options) {
+      if (!this.p || false) return; // Prefetch the JSON page if asked (only in the client)
+
+      var paths = this.getPaths(); // We need to handle a prefetch error here since we may be
+      // loading with priority which can reject but we don't
+      // want to force navigation since this is only a prefetch
+
+      _router["default"].prefetch(paths[
+      /* href */
+      0], paths[
+      /* asPath */
+      1], options)["catch"](function (err) {
+        if (true) {
+          // rethrow to show invalid URL errors
+          throw err;
+        }
+      });
+
+      prefetched[paths.join( // Join on an invalid URI character
+      '%')] = true;
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      var children = this.props.children;
+
+      var _this$formatUrls3 = this.formatUrls(this.props.href, this.props.as),
+          href = _this$formatUrls3.href,
+          as = _this$formatUrls3.as; // Deprecated. Warning shown by propType check. If the children provided is a string (<Link>example</Link>) we wrap it in an <a> tag
+
+
+      if (typeof children === 'string') {
+        children = _react["default"].createElement("a", null, children);
+      } // This will return the first child, if multiple are provided it will throw an error
+
+
+      var child = _react.Children.only(children);
+
+      var props = {
+        ref: function ref(el) {
+          _this3.handleRef(el);
+
+          if (child && typeof child === 'object' && child.ref) {
+            if (typeof child.ref === 'function') child.ref(el);else if (typeof child.ref === 'object') {
+              child.ref.current = el;
+            }
+          }
+        },
+        onMouseEnter: function onMouseEnter(e) {
+          if (child.props && typeof child.props.onMouseEnter === 'function') {
+            child.props.onMouseEnter(e);
+          }
+
+          _this3.prefetch({
+            priority: true
+          });
+        },
+        onClick: function onClick(e) {
+          if (child.props && typeof child.props.onClick === 'function') {
+            child.props.onClick(e);
+          }
+
+          if (!e.defaultPrevented) {
+            _this3.linkClicked(e);
+          }
+        }
+      }; // If child is an <a> tag and doesn't have a href attribute, or if the 'passHref' property is
+      // defined, we specify the current 'href', so that repetition is not needed by the user
+
+      if (this.props.passHref || child.type === 'a' && !('href' in child.props)) {
+        props.href = as || href;
+      } // Add the ending slash to the paths. So, we can serve the
+      // "<page>/index.html" directly.
+
+
+      if (true) {
+        var rewriteUrlForNextExport = __webpack_require__(/*! ../next-server/lib/router/rewrite-url-for-export */ "./node_modules/next/dist/next-server/lib/router/rewrite-url-for-export.js").rewriteUrlForNextExport;
+
+        if (props.href && typeof __NEXT_DATA__ !== 'undefined' && __NEXT_DATA__.nextExport) {
+          props.href = rewriteUrlForNextExport(props.href);
+        }
+      }
+
+      return _react["default"].cloneElement(child, props);
+    }
+  }]);
+
+  return Link;
+}(_react.Component);
+
+if (true) {
+  var warn = (0, _utils.execOnce)(console.error); // This module gets removed by webpack.IgnorePlugin
+
+  var PropTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+  var exact = __webpack_require__(/*! prop-types-exact */ "./node_modules/prop-types-exact/build/index.js"); // @ts-ignore the property is supported, when declaring it on the class it outputs an extra bit of code which is not needed.
+
+
+  Link.propTypes = exact({
+    href: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
+    as: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    prefetch: PropTypes.bool,
+    replace: PropTypes.bool,
+    shallow: PropTypes.bool,
+    passHref: PropTypes.bool,
+    scroll: PropTypes.bool,
+    children: PropTypes.oneOfType([PropTypes.element, function (props, propName) {
+      var value = props[propName];
+
+      if (typeof value === 'string') {
+        warn("Warning: You're using a string directly inside <Link>. This usage has been deprecated. Please add an <a> tag as child of <Link>");
+      }
+
+      return null;
+    }]).isRequired
+  });
+}
+
+var _default = Link;
+exports["default"] = _default;
 
 /***/ }),
 
@@ -1621,6 +2189,33 @@ exports.getRouteRegex = getRouteRegex;
 
 /***/ }),
 
+/***/ "./node_modules/next/dist/next-server/lib/runtime-config.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/next/dist/next-server/lib/runtime-config.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var runtimeConfig;
+
+exports["default"] = function () {
+  return runtimeConfig;
+};
+
+function setConfig(configValue) {
+  runtimeConfig = configValue;
+}
+
+exports.setConfig = setConfig;
+
+/***/ }),
+
 /***/ "./node_modules/next/dist/next-server/lib/utils.js":
 /*!*********************************************************!*\
   !*** ./node_modules/next/dist/next-server/lib/utils.js ***!
@@ -1801,198 +2396,755 @@ exports.ST = exports.SP && typeof performance.mark === 'function' && typeof perf
 
 /***/ }),
 
-/***/ "./node_modules/process/browser.js":
-/*!*****************************************!*\
-  !*** ./node_modules/process/browser.js ***!
-  \*****************************************/
+/***/ "./node_modules/next/link.js":
+/*!***********************************!*\
+  !*** ./node_modules/next/link.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! ./dist/client/link */ "./node_modules/next/dist/client/link.js")
+
+
+/***/ }),
+
+/***/ "./node_modules/prop-types-exact/build/helpers/isPlainObject.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/prop-types-exact/build/helpers/isPlainObject.js ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-// shim for using process in browser
-var process = module.exports = {};
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-// cached from whatever global is present so that test runners that stub it
-// don't break things.  But we need to wrap it in a try catch in case it is
-// wrapped in strict mode code which doesn't define any globals.  It's inside a
-// function because try/catches deoptimize in certain engines.
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var cachedSetTimeout;
-var cachedClearTimeout;
-
-function defaultSetTimout() {
-    throw new Error('setTimeout has not been defined');
+exports['default'] = isPlainObject;
+function isPlainObject(x) {
+  return x && (typeof x === 'undefined' ? 'undefined' : _typeof(x)) === 'object' && !Array.isArray(x);
 }
-function defaultClearTimeout () {
-    throw new Error('clearTimeout has not been defined');
+module.exports = exports['default'];
+//# sourceMappingURL=isPlainObject.js.map
+
+/***/ }),
+
+/***/ "./node_modules/prop-types-exact/build/index.js":
+/*!******************************************************!*\
+  !*** ./node_modules/prop-types-exact/build/index.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports['default'] = forbidExtraProps;
+
+var _object = __webpack_require__(/*! object.assign */ "./node_modules/next/dist/build/polyfills/object.assign/index.js");
+
+var _object2 = _interopRequireDefault(_object);
+
+var _has = __webpack_require__(/*! has */ "./node_modules/has/src/index.js");
+
+var _has2 = _interopRequireDefault(_has);
+
+var _isPlainObject = __webpack_require__(/*! ./helpers/isPlainObject */ "./node_modules/prop-types-exact/build/helpers/isPlainObject.js");
+
+var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var zeroWidthSpace = '\u200B';
+var specialProperty = 'prop-types-exact: ' + zeroWidthSpace;
+var semaphore = typeof Symbol === 'function' && typeof Symbol['for'] === 'function' ? Symbol['for'](specialProperty) : /* istanbul ignore next */specialProperty;
+
+function brand(fn) {
+  return (0, _object2['default'])(fn, _defineProperty({}, specialProperty, semaphore));
 }
-(function () {
-    try {
-        if (typeof setTimeout === 'function') {
-            cachedSetTimeout = setTimeout;
-        } else {
-            cachedSetTimeout = defaultSetTimout;
-        }
-    } catch (e) {
-        cachedSetTimeout = defaultSetTimout;
-    }
-    try {
-        if (typeof clearTimeout === 'function') {
-            cachedClearTimeout = clearTimeout;
-        } else {
-            cachedClearTimeout = defaultClearTimeout;
-        }
-    } catch (e) {
-        cachedClearTimeout = defaultClearTimeout;
-    }
-} ())
-function runTimeout(fun) {
-    if (cachedSetTimeout === setTimeout) {
-        //normal enviroments in sane situations
-        return setTimeout(fun, 0);
-    }
-    // if setTimeout wasn't available but was latter defined
-    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
-        cachedSetTimeout = setTimeout;
-        return setTimeout(fun, 0);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedSetTimeout(fun, 0);
-    } catch(e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
-            return cachedSetTimeout.call(null, fun, 0);
-        } catch(e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
-            return cachedSetTimeout.call(this, fun, 0);
-        }
-    }
 
-
+function isBranded(value) {
+  return value && value[specialProperty] === semaphore;
 }
-function runClearTimeout(marker) {
-    if (cachedClearTimeout === clearTimeout) {
-        //normal enviroments in sane situations
-        return clearTimeout(marker);
+
+function forbidExtraProps(propTypes) {
+  if (!(0, _isPlainObject2['default'])(propTypes)) {
+    throw new TypeError('given propTypes must be an object');
+  }
+  if ((0, _has2['default'])(propTypes, specialProperty) && !isBranded(propTypes[specialProperty])) {
+    throw new TypeError('Against all odds, you created a propType for a prop that uses both the zero-width space and our custom string - which, sadly, conflicts with `prop-types-exact`');
+  }
+
+  return (0, _object2['default'])({}, propTypes, _defineProperty({}, specialProperty, brand(function () {
+    function forbidUnknownProps(props, _, componentName) {
+      var unknownProps = Object.keys(props).filter(function (prop) {
+        return !(0, _has2['default'])(propTypes, prop);
+      });
+      if (unknownProps.length > 0) {
+        return new TypeError(String(componentName) + ': unknown props found: ' + String(unknownProps.join(', ')));
+      }
+      return null;
     }
-    // if clearTimeout wasn't available but was latter defined
-    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
-        cachedClearTimeout = clearTimeout;
-        return clearTimeout(marker);
+
+    return forbidUnknownProps;
+  }())));
+}
+module.exports = exports['default'];
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "./node_modules/prop-types/checkPropTypes.js":
+/*!*********************************************************************************************************!*\
+  !*** delegated ./node_modules/prop-types/checkPropTypes.js from dll-reference dll_2adc2403d89adc16ead0 ***!
+  \*********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(/*! dll-reference dll_2adc2403d89adc16ead0 */ "dll-reference dll_2adc2403d89adc16ead0"))("./node_modules/prop-types/checkPropTypes.js");
+
+/***/ }),
+
+/***/ "./node_modules/prop-types/factoryWithTypeCheckers.js":
+/*!************************************************************!*\
+  !*** ./node_modules/prop-types/factoryWithTypeCheckers.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.js");
+var assign = __webpack_require__(/*! object-assign */ "./node_modules/next/dist/build/polyfills/object-assign.js");
+
+var ReactPropTypesSecret = __webpack_require__(/*! ./lib/ReactPropTypesSecret */ "./node_modules/prop-types/lib/ReactPropTypesSecret.js");
+var checkPropTypes = __webpack_require__(/*! ./checkPropTypes */ "./node_modules/prop-types/checkPropTypes.js");
+
+var has = Function.call.bind(Object.prototype.hasOwnProperty);
+var printWarning = function() {};
+
+if (true) {
+  printWarning = function(text) {
+    var message = 'Warning: ' + text;
+    if (typeof console !== 'undefined') {
+      console.error(message);
     }
     try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedClearTimeout(marker);
-    } catch (e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
-            return cachedClearTimeout.call(null, marker);
-        } catch (e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
-            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
-            return cachedClearTimeout.call(this, marker);
-        }
-    }
-
-
-
+      // --- Welcome to debugging React ---
+      // This error was thrown as a convenience so that you can use this stack
+      // to find the callsite that caused this warning to fire.
+      throw new Error(message);
+    } catch (x) {}
+  };
 }
-var queue = [];
-var draining = false;
-var currentQueue;
-var queueIndex = -1;
 
-function cleanUpNextTick() {
-    if (!draining || !currentQueue) {
-        return;
+function emptyFunctionThatReturnsNull() {
+  return null;
+}
+
+module.exports = function(isValidElement, throwOnDirectAccess) {
+  /* global Symbol */
+  var ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
+  var FAUX_ITERATOR_SYMBOL = '@@iterator'; // Before Symbol spec.
+
+  /**
+   * Returns the iterator method function contained on the iterable object.
+   *
+   * Be sure to invoke the function with the iterable as context:
+   *
+   *     var iteratorFn = getIteratorFn(myIterable);
+   *     if (iteratorFn) {
+   *       var iterator = iteratorFn.call(myIterable);
+   *       ...
+   *     }
+   *
+   * @param {?object} maybeIterable
+   * @return {?function}
+   */
+  function getIteratorFn(maybeIterable) {
+    var iteratorFn = maybeIterable && (ITERATOR_SYMBOL && maybeIterable[ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL]);
+    if (typeof iteratorFn === 'function') {
+      return iteratorFn;
     }
-    draining = false;
-    if (currentQueue.length) {
-        queue = currentQueue.concat(queue);
+  }
+
+  /**
+   * Collection of methods that allow declaration and validation of props that are
+   * supplied to React components. Example usage:
+   *
+   *   var Props = require('ReactPropTypes');
+   *   var MyArticle = React.createClass({
+   *     propTypes: {
+   *       // An optional string prop named "description".
+   *       description: Props.string,
+   *
+   *       // A required enum prop named "category".
+   *       category: Props.oneOf(['News','Photos']).isRequired,
+   *
+   *       // A prop named "dialog" that requires an instance of Dialog.
+   *       dialog: Props.instanceOf(Dialog).isRequired
+   *     },
+   *     render: function() { ... }
+   *   });
+   *
+   * A more formal specification of how these methods are used:
+   *
+   *   type := array|bool|func|object|number|string|oneOf([...])|instanceOf(...)
+   *   decl := ReactPropTypes.{type}(.isRequired)?
+   *
+   * Each and every declaration produces a function with the same signature. This
+   * allows the creation of custom validation functions. For example:
+   *
+   *  var MyLink = React.createClass({
+   *    propTypes: {
+   *      // An optional string or URI prop named "href".
+   *      href: function(props, propName, componentName) {
+   *        var propValue = props[propName];
+   *        if (propValue != null && typeof propValue !== 'string' &&
+   *            !(propValue instanceof URI)) {
+   *          return new Error(
+   *            'Expected a string or an URI for ' + propName + ' in ' +
+   *            componentName
+   *          );
+   *        }
+   *      }
+   *    },
+   *    render: function() {...}
+   *  });
+   *
+   * @internal
+   */
+
+  var ANONYMOUS = '<<anonymous>>';
+
+  // Important!
+  // Keep this list in sync with production version in `./factoryWithThrowingShims.js`.
+  var ReactPropTypes = {
+    array: createPrimitiveTypeChecker('array'),
+    bool: createPrimitiveTypeChecker('boolean'),
+    func: createPrimitiveTypeChecker('function'),
+    number: createPrimitiveTypeChecker('number'),
+    object: createPrimitiveTypeChecker('object'),
+    string: createPrimitiveTypeChecker('string'),
+    symbol: createPrimitiveTypeChecker('symbol'),
+
+    any: createAnyTypeChecker(),
+    arrayOf: createArrayOfTypeChecker,
+    element: createElementTypeChecker(),
+    elementType: createElementTypeTypeChecker(),
+    instanceOf: createInstanceTypeChecker,
+    node: createNodeChecker(),
+    objectOf: createObjectOfTypeChecker,
+    oneOf: createEnumTypeChecker,
+    oneOfType: createUnionTypeChecker,
+    shape: createShapeTypeChecker,
+    exact: createStrictShapeTypeChecker,
+  };
+
+  /**
+   * inlined Object.is polyfill to avoid requiring consumers ship their own
+   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
+   */
+  /*eslint-disable no-self-compare*/
+  function is(x, y) {
+    // SameValue algorithm
+    if (x === y) {
+      // Steps 1-5, 7-10
+      // Steps 6.b-6.e: +0 != -0
+      return x !== 0 || 1 / x === 1 / y;
     } else {
-        queueIndex = -1;
+      // Step 6.a: NaN == NaN
+      return x !== x && y !== y;
     }
-    if (queue.length) {
-        drainQueue();
-    }
-}
+  }
+  /*eslint-enable no-self-compare*/
 
-function drainQueue() {
-    if (draining) {
-        return;
-    }
-    var timeout = runTimeout(cleanUpNextTick);
-    draining = true;
+  /**
+   * We use an Error-like object for backward compatibility as people may call
+   * PropTypes directly and inspect their output. However, we don't use real
+   * Errors anymore. We don't inspect their stack anyway, and creating them
+   * is prohibitively expensive if they are created too often, such as what
+   * happens in oneOfType() for any type before the one that matched.
+   */
+  function PropTypeError(message) {
+    this.message = message;
+    this.stack = '';
+  }
+  // Make `instanceof Error` still work for returned errors.
+  PropTypeError.prototype = Error.prototype;
 
-    var len = queue.length;
-    while(len) {
-        currentQueue = queue;
-        queue = [];
-        while (++queueIndex < len) {
-            if (currentQueue) {
-                currentQueue[queueIndex].run();
+  function createChainableTypeChecker(validate) {
+    if (true) {
+      var manualPropTypeCallCache = {};
+      var manualPropTypeWarningCount = 0;
+    }
+    function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
+      componentName = componentName || ANONYMOUS;
+      propFullName = propFullName || propName;
+
+      if (secret !== ReactPropTypesSecret) {
+        if (throwOnDirectAccess) {
+          // New behavior only for users of `prop-types` package
+          var err = new Error(
+            'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
+            'Use `PropTypes.checkPropTypes()` to call them. ' +
+            'Read more at http://fb.me/use-check-prop-types'
+          );
+          err.name = 'Invariant Violation';
+          throw err;
+        } else if ( true && typeof console !== 'undefined') {
+          // Old behavior for people using React.PropTypes
+          var cacheKey = componentName + ':' + propName;
+          if (
+            !manualPropTypeCallCache[cacheKey] &&
+            // Avoid spamming the console because they are often not actionable except for lib authors
+            manualPropTypeWarningCount < 3
+          ) {
+            printWarning(
+              'You are manually calling a React.PropTypes validation ' +
+              'function for the `' + propFullName + '` prop on `' + componentName  + '`. This is deprecated ' +
+              'and will throw in the standalone `prop-types` package. ' +
+              'You may be seeing this warning due to a third-party PropTypes ' +
+              'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.'
+            );
+            manualPropTypeCallCache[cacheKey] = true;
+            manualPropTypeWarningCount++;
+          }
+        }
+      }
+      if (props[propName] == null) {
+        if (isRequired) {
+          if (props[propName] === null) {
+            return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required ' + ('in `' + componentName + '`, but its value is `null`.'));
+          }
+          return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required in ' + ('`' + componentName + '`, but its value is `undefined`.'));
+        }
+        return null;
+      } else {
+        return validate(props, propName, componentName, location, propFullName);
+      }
+    }
+
+    var chainedCheckType = checkType.bind(null, false);
+    chainedCheckType.isRequired = checkType.bind(null, true);
+
+    return chainedCheckType;
+  }
+
+  function createPrimitiveTypeChecker(expectedType) {
+    function validate(props, propName, componentName, location, propFullName, secret) {
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== expectedType) {
+        // `propValue` being instance of, say, date/regexp, pass the 'object'
+        // check, but we can offer a more precise error message here rather than
+        // 'of type `object`'.
+        var preciseType = getPreciseType(propValue);
+
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + preciseType + '` supplied to `' + componentName + '`, expected ') + ('`' + expectedType + '`.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createAnyTypeChecker() {
+    return createChainableTypeChecker(emptyFunctionThatReturnsNull);
+  }
+
+  function createArrayOfTypeChecker(typeChecker) {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (typeof typeChecker !== 'function') {
+        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside arrayOf.');
+      }
+      var propValue = props[propName];
+      if (!Array.isArray(propValue)) {
+        var propType = getPropType(propValue);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an array.'));
+      }
+      for (var i = 0; i < propValue.length; i++) {
+        var error = typeChecker(propValue, i, componentName, location, propFullName + '[' + i + ']', ReactPropTypesSecret);
+        if (error instanceof Error) {
+          return error;
+        }
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createElementTypeChecker() {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      if (!isValidElement(propValue)) {
+        var propType = getPropType(propValue);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createElementTypeTypeChecker() {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      if (!ReactIs.isValidElementType(propValue)) {
+        var propType = getPropType(propValue);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement type.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createInstanceTypeChecker(expectedClass) {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (!(props[propName] instanceof expectedClass)) {
+        var expectedClassName = expectedClass.name || ANONYMOUS;
+        var actualClassName = getClassName(props[propName]);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + actualClassName + '` supplied to `' + componentName + '`, expected ') + ('instance of `' + expectedClassName + '`.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createEnumTypeChecker(expectedValues) {
+    if (!Array.isArray(expectedValues)) {
+      if (true) {
+        if (arguments.length > 1) {
+          printWarning(
+            'Invalid arguments supplied to oneOf, expected an array, got ' + arguments.length + ' arguments. ' +
+            'A common mistake is to write oneOf(x, y, z) instead of oneOf([x, y, z]).'
+          );
+        } else {
+          printWarning('Invalid argument supplied to oneOf, expected an array.');
+        }
+      }
+      return emptyFunctionThatReturnsNull;
+    }
+
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      for (var i = 0; i < expectedValues.length; i++) {
+        if (is(propValue, expectedValues[i])) {
+          return null;
+        }
+      }
+
+      var valuesString = JSON.stringify(expectedValues, function replacer(key, value) {
+        var type = getPreciseType(value);
+        if (type === 'symbol') {
+          return String(value);
+        }
+        return value;
+      });
+      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of value `' + String(propValue) + '` ' + ('supplied to `' + componentName + '`, expected one of ' + valuesString + '.'));
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createObjectOfTypeChecker(typeChecker) {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (typeof typeChecker !== 'function') {
+        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside objectOf.');
+      }
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== 'object') {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an object.'));
+      }
+      for (var key in propValue) {
+        if (has(propValue, key)) {
+          var error = typeChecker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+          if (error instanceof Error) {
+            return error;
+          }
+        }
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createUnionTypeChecker(arrayOfTypeCheckers) {
+    if (!Array.isArray(arrayOfTypeCheckers)) {
+       true ? printWarning('Invalid argument supplied to oneOfType, expected an instance of array.') : undefined;
+      return emptyFunctionThatReturnsNull;
+    }
+
+    for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
+      var checker = arrayOfTypeCheckers[i];
+      if (typeof checker !== 'function') {
+        printWarning(
+          'Invalid argument supplied to oneOfType. Expected an array of check functions, but ' +
+          'received ' + getPostfixForTypeWarning(checker) + ' at index ' + i + '.'
+        );
+        return emptyFunctionThatReturnsNull;
+      }
+    }
+
+    function validate(props, propName, componentName, location, propFullName) {
+      for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
+        var checker = arrayOfTypeCheckers[i];
+        if (checker(props, propName, componentName, location, propFullName, ReactPropTypesSecret) == null) {
+          return null;
+        }
+      }
+
+      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`.'));
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createNodeChecker() {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (!isNode(props[propName])) {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`, expected a ReactNode.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createShapeTypeChecker(shapeTypes) {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== 'object') {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
+      }
+      for (var key in shapeTypes) {
+        var checker = shapeTypes[key];
+        if (!checker) {
+          continue;
+        }
+        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+        if (error) {
+          return error;
+        }
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createStrictShapeTypeChecker(shapeTypes) {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== 'object') {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
+      }
+      // We need to check all keys in case some are required but missing from
+      // props.
+      var allKeys = assign({}, props[propName], shapeTypes);
+      for (var key in allKeys) {
+        var checker = shapeTypes[key];
+        if (!checker) {
+          return new PropTypeError(
+            'Invalid ' + location + ' `' + propFullName + '` key `' + key + '` supplied to `' + componentName + '`.' +
+            '\nBad object: ' + JSON.stringify(props[propName], null, '  ') +
+            '\nValid keys: ' +  JSON.stringify(Object.keys(shapeTypes), null, '  ')
+          );
+        }
+        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+        if (error) {
+          return error;
+        }
+      }
+      return null;
+    }
+
+    return createChainableTypeChecker(validate);
+  }
+
+  function isNode(propValue) {
+    switch (typeof propValue) {
+      case 'number':
+      case 'string':
+      case 'undefined':
+        return true;
+      case 'boolean':
+        return !propValue;
+      case 'object':
+        if (Array.isArray(propValue)) {
+          return propValue.every(isNode);
+        }
+        if (propValue === null || isValidElement(propValue)) {
+          return true;
+        }
+
+        var iteratorFn = getIteratorFn(propValue);
+        if (iteratorFn) {
+          var iterator = iteratorFn.call(propValue);
+          var step;
+          if (iteratorFn !== propValue.entries) {
+            while (!(step = iterator.next()).done) {
+              if (!isNode(step.value)) {
+                return false;
+              }
             }
+          } else {
+            // Iterator will provide entry [k,v] tuples rather than values.
+            while (!(step = iterator.next()).done) {
+              var entry = step.value;
+              if (entry) {
+                if (!isNode(entry[1])) {
+                  return false;
+                }
+              }
+            }
+          }
+        } else {
+          return false;
         }
-        queueIndex = -1;
-        len = queue.length;
+
+        return true;
+      default:
+        return false;
     }
-    currentQueue = null;
-    draining = false;
-    runClearTimeout(timeout);
-}
+  }
 
-process.nextTick = function (fun) {
-    var args = new Array(arguments.length - 1);
-    if (arguments.length > 1) {
-        for (var i = 1; i < arguments.length; i++) {
-            args[i - 1] = arguments[i];
-        }
+  function isSymbol(propType, propValue) {
+    // Native Symbol.
+    if (propType === 'symbol') {
+      return true;
     }
-    queue.push(new Item(fun, args));
-    if (queue.length === 1 && !draining) {
-        runTimeout(drainQueue);
+
+    // falsy value can't be a Symbol
+    if (!propValue) {
+      return false;
     }
+
+    // 19.4.3.5 Symbol.prototype[@@toStringTag] === 'Symbol'
+    if (propValue['@@toStringTag'] === 'Symbol') {
+      return true;
+    }
+
+    // Fallback for non-spec compliant Symbols which are polyfilled.
+    if (typeof Symbol === 'function' && propValue instanceof Symbol) {
+      return true;
+    }
+
+    return false;
+  }
+
+  // Equivalent of `typeof` but with special handling for array and regexp.
+  function getPropType(propValue) {
+    var propType = typeof propValue;
+    if (Array.isArray(propValue)) {
+      return 'array';
+    }
+    if (propValue instanceof RegExp) {
+      // Old webkits (at least until Android 4.0) return 'function' rather than
+      // 'object' for typeof a RegExp. We'll normalize this here so that /bla/
+      // passes PropTypes.object.
+      return 'object';
+    }
+    if (isSymbol(propType, propValue)) {
+      return 'symbol';
+    }
+    return propType;
+  }
+
+  // This handles more types than `getPropType`. Only used for error messages.
+  // See `createPrimitiveTypeChecker`.
+  function getPreciseType(propValue) {
+    if (typeof propValue === 'undefined' || propValue === null) {
+      return '' + propValue;
+    }
+    var propType = getPropType(propValue);
+    if (propType === 'object') {
+      if (propValue instanceof Date) {
+        return 'date';
+      } else if (propValue instanceof RegExp) {
+        return 'regexp';
+      }
+    }
+    return propType;
+  }
+
+  // Returns a string that is postfixed to a warning about an invalid type.
+  // For example, "undefined" or "of type array"
+  function getPostfixForTypeWarning(value) {
+    var type = getPreciseType(value);
+    switch (type) {
+      case 'array':
+      case 'object':
+        return 'an ' + type;
+      case 'boolean':
+      case 'date':
+      case 'regexp':
+        return 'a ' + type;
+      default:
+        return type;
+    }
+  }
+
+  // Returns class name of the object, if any.
+  function getClassName(propValue) {
+    if (!propValue.constructor || !propValue.constructor.name) {
+      return ANONYMOUS;
+    }
+    return propValue.constructor.name;
+  }
+
+  ReactPropTypes.checkPropTypes = checkPropTypes;
+  ReactPropTypes.resetWarningCache = checkPropTypes.resetWarningCache;
+  ReactPropTypes.PropTypes = ReactPropTypes;
+
+  return ReactPropTypes;
 };
 
-// v8 likes predictible objects
-function Item(fun, array) {
-    this.fun = fun;
-    this.array = array;
-}
-Item.prototype.run = function () {
-    this.fun.apply(null, this.array);
-};
-process.title = 'browser';
-process.browser = true;
-process.env = {};
-process.argv = [];
-process.version = ''; // empty string to avoid regexp issues
-process.versions = {};
 
-function noop() {}
+/***/ }),
 
-process.on = noop;
-process.addListener = noop;
-process.once = noop;
-process.off = noop;
-process.removeListener = noop;
-process.removeAllListeners = noop;
-process.emit = noop;
-process.prependListener = noop;
-process.prependOnceListener = noop;
+/***/ "./node_modules/prop-types/index.js":
+/*!******************************************!*\
+  !*** ./node_modules/prop-types/index.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-process.listeners = function (name) { return [] }
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
 
-process.binding = function (name) {
-    throw new Error('process.binding is not supported');
-};
+if (true) {
+  var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.js");
 
-process.cwd = function () { return '/' };
-process.chdir = function (dir) {
-    throw new Error('process.chdir is not supported');
-};
-process.umask = function() { return 0; };
+  // By explicitly using `prop-types` you are opting into new development behavior.
+  // http://fb.me/prop-types-in-prod
+  var throwOnDirectAccess = true;
+  module.exports = __webpack_require__(/*! ./factoryWithTypeCheckers */ "./node_modules/prop-types/factoryWithTypeCheckers.js")(ReactIs.isElement, throwOnDirectAccess);
+} else {}
 
+
+/***/ }),
+
+/***/ "./node_modules/prop-types/lib/ReactPropTypesSecret.js":
+/*!*******************************************************************************************************************!*\
+  !*** delegated ./node_modules/prop-types/lib/ReactPropTypesSecret.js from dll-reference dll_2adc2403d89adc16ead0 ***!
+  \*******************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(/*! dll-reference dll_2adc2403d89adc16ead0 */ "dll-reference dll_2adc2403d89adc16ead0"))("./node_modules/prop-types/lib/ReactPropTypesSecret.js");
 
 /***/ }),
 
@@ -3212,981 +4364,95 @@ try {
 
 /***/ }),
 
-/***/ "./node_modules/string-hash/index.js":
-/*!*******************************************!*\
-  !*** ./node_modules/string-hash/index.js ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-function hash(str) {
-  var hash = 5381,
-      i    = str.length;
-
-  while(i) {
-    hash = (hash * 33) ^ str.charCodeAt(--i);
-  }
-
-  /* JavaScript does bitwise operations (like XOR, above) on 32-bit signed
-   * integers. Since we want the results to be always positive, convert the
-   * signed int to an unsigned by doing an unsigned bitshift. */
-  return hash >>> 0;
-}
-
-module.exports = hash;
-
-
-/***/ }),
-
-/***/ "./node_modules/styled-jsx/dist/lib/stylesheet.js":
-/*!********************************************************!*\
-  !*** ./node_modules/styled-jsx/dist/lib/stylesheet.js ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-exports.__esModule = true;
-exports["default"] = void 0;
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-/*
-Based on Glamor's sheet
-https://github.com/threepointone/glamor/blob/667b480d31b3721a905021b26e1290ce92ca2879/src/sheet.js
-*/
-var isProd = typeof process !== 'undefined' && process.env && "development" === 'production';
-
-var isString = function isString(o) {
-  return Object.prototype.toString.call(o) === '[object String]';
-};
-
-var StyleSheet =
-/*#__PURE__*/
-function () {
-  function StyleSheet(_temp) {
-    var _ref = _temp === void 0 ? {} : _temp,
-        _ref$name = _ref.name,
-        name = _ref$name === void 0 ? 'stylesheet' : _ref$name,
-        _ref$optimizeForSpeed = _ref.optimizeForSpeed,
-        optimizeForSpeed = _ref$optimizeForSpeed === void 0 ? isProd : _ref$optimizeForSpeed,
-        _ref$isBrowser = _ref.isBrowser,
-        isBrowser = _ref$isBrowser === void 0 ? typeof window !== 'undefined' : _ref$isBrowser;
-
-    invariant(isString(name), '`name` must be a string');
-    this._name = name;
-    this._deletedRulePlaceholder = "#" + name + "-deleted-rule____{}";
-    invariant(typeof optimizeForSpeed === 'boolean', '`optimizeForSpeed` must be a boolean');
-    this._optimizeForSpeed = optimizeForSpeed;
-    this._isBrowser = isBrowser;
-    this._serverSheet = undefined;
-    this._tags = [];
-    this._injected = false;
-    this._rulesCount = 0;
-    var node = this._isBrowser && document.querySelector('meta[property="csp-nonce"]');
-    this._nonce = node ? node.getAttribute('content') : null;
-  }
-
-  var _proto = StyleSheet.prototype;
-
-  _proto.setOptimizeForSpeed = function setOptimizeForSpeed(bool) {
-    invariant(typeof bool === 'boolean', '`setOptimizeForSpeed` accepts a boolean');
-    invariant(this._rulesCount === 0, 'optimizeForSpeed cannot be when rules have already been inserted');
-    this.flush();
-    this._optimizeForSpeed = bool;
-    this.inject();
-  };
-
-  _proto.isOptimizeForSpeed = function isOptimizeForSpeed() {
-    return this._optimizeForSpeed;
-  };
-
-  _proto.inject = function inject() {
-    var _this = this;
-
-    invariant(!this._injected, 'sheet already injected');
-    this._injected = true;
-
-    if (this._isBrowser && this._optimizeForSpeed) {
-      this._tags[0] = this.makeStyleTag(this._name);
-      this._optimizeForSpeed = 'insertRule' in this.getSheet();
-
-      if (!this._optimizeForSpeed) {
-        if (!isProd) {
-          console.warn('StyleSheet: optimizeForSpeed mode not supported falling back to standard mode.');
-        }
-
-        this.flush();
-        this._injected = true;
-      }
-
-      return;
-    }
-
-    this._serverSheet = {
-      cssRules: [],
-      insertRule: function insertRule(rule, index) {
-        if (typeof index === 'number') {
-          _this._serverSheet.cssRules[index] = {
-            cssText: rule
-          };
-        } else {
-          _this._serverSheet.cssRules.push({
-            cssText: rule
-          });
-        }
-
-        return index;
-      },
-      deleteRule: function deleteRule(index) {
-        _this._serverSheet.cssRules[index] = null;
-      }
-    };
-  };
-
-  _proto.getSheetForTag = function getSheetForTag(tag) {
-    if (tag.sheet) {
-      return tag.sheet;
-    } // this weirdness brought to you by firefox
-
-
-    for (var i = 0; i < document.styleSheets.length; i++) {
-      if (document.styleSheets[i].ownerNode === tag) {
-        return document.styleSheets[i];
-      }
-    }
-  };
-
-  _proto.getSheet = function getSheet() {
-    return this.getSheetForTag(this._tags[this._tags.length - 1]);
-  };
-
-  _proto.insertRule = function insertRule(rule, index) {
-    invariant(isString(rule), '`insertRule` accepts only strings');
-
-    if (!this._isBrowser) {
-      if (typeof index !== 'number') {
-        index = this._serverSheet.cssRules.length;
-      }
-
-      this._serverSheet.insertRule(rule, index);
-
-      return this._rulesCount++;
-    }
-
-    if (this._optimizeForSpeed) {
-      var sheet = this.getSheet();
-
-      if (typeof index !== 'number') {
-        index = sheet.cssRules.length;
-      } // this weirdness for perf, and chrome's weird bug
-      // https://stackoverflow.com/questions/20007992/chrome-suddenly-stopped-accepting-insertrule
-
-
-      try {
-        sheet.insertRule(rule, index);
-      } catch (error) {
-        if (!isProd) {
-          console.warn("StyleSheet: illegal rule: \n\n" + rule + "\n\nSee https://stackoverflow.com/q/20007992 for more info");
-        }
-
-        return -1;
-      }
-    } else {
-      var insertionPoint = this._tags[index];
-
-      this._tags.push(this.makeStyleTag(this._name, rule, insertionPoint));
-    }
-
-    return this._rulesCount++;
-  };
-
-  _proto.replaceRule = function replaceRule(index, rule) {
-    if (this._optimizeForSpeed || !this._isBrowser) {
-      var sheet = this._isBrowser ? this.getSheet() : this._serverSheet;
-
-      if (!rule.trim()) {
-        rule = this._deletedRulePlaceholder;
-      }
-
-      if (!sheet.cssRules[index]) {
-        // @TBD Should we throw an error?
-        return index;
-      }
-
-      sheet.deleteRule(index);
-
-      try {
-        sheet.insertRule(rule, index);
-      } catch (error) {
-        if (!isProd) {
-          console.warn("StyleSheet: illegal rule: \n\n" + rule + "\n\nSee https://stackoverflow.com/q/20007992 for more info");
-        } // In order to preserve the indices we insert a deleteRulePlaceholder
-
-
-        sheet.insertRule(this._deletedRulePlaceholder, index);
-      }
-    } else {
-      var tag = this._tags[index];
-      invariant(tag, "old rule at index `" + index + "` not found");
-      tag.textContent = rule;
-    }
-
-    return index;
-  };
-
-  _proto.deleteRule = function deleteRule(index) {
-    if (!this._isBrowser) {
-      this._serverSheet.deleteRule(index);
-
-      return;
-    }
-
-    if (this._optimizeForSpeed) {
-      this.replaceRule(index, '');
-    } else {
-      var tag = this._tags[index];
-      invariant(tag, "rule at index `" + index + "` not found");
-      tag.parentNode.removeChild(tag);
-      this._tags[index] = null;
-    }
-  };
-
-  _proto.flush = function flush() {
-    this._injected = false;
-    this._rulesCount = 0;
-
-    if (this._isBrowser) {
-      this._tags.forEach(function (tag) {
-        return tag && tag.parentNode.removeChild(tag);
-      });
-
-      this._tags = [];
-    } else {
-      // simpler on server
-      this._serverSheet.cssRules = [];
-    }
-  };
-
-  _proto.cssRules = function cssRules() {
-    var _this2 = this;
-
-    if (!this._isBrowser) {
-      return this._serverSheet.cssRules;
-    }
-
-    return this._tags.reduce(function (rules, tag) {
-      if (tag) {
-        rules = rules.concat(Array.prototype.map.call(_this2.getSheetForTag(tag).cssRules, function (rule) {
-          return rule.cssText === _this2._deletedRulePlaceholder ? null : rule;
-        }));
-      } else {
-        rules.push(null);
-      }
-
-      return rules;
-    }, []);
-  };
-
-  _proto.makeStyleTag = function makeStyleTag(name, cssString, relativeToTag) {
-    if (cssString) {
-      invariant(isString(cssString), 'makeStyleTag acceps only strings as second parameter');
-    }
-
-    var tag = document.createElement('style');
-    if (this._nonce) tag.setAttribute('nonce', this._nonce);
-    tag.type = 'text/css';
-    tag.setAttribute("data-" + name, '');
-
-    if (cssString) {
-      tag.appendChild(document.createTextNode(cssString));
-    }
-
-    var head = document.head || document.getElementsByTagName('head')[0];
-
-    if (relativeToTag) {
-      head.insertBefore(tag, relativeToTag);
-    } else {
-      head.appendChild(tag);
-    }
-
-    return tag;
-  };
-
-  _createClass(StyleSheet, [{
-    key: "length",
-    get: function get() {
-      return this._rulesCount;
-    }
-  }]);
-
-  return StyleSheet;
-}();
-
-exports["default"] = StyleSheet;
-
-function invariant(condition, message) {
-  if (!condition) {
-    throw new Error("StyleSheet: " + message + ".");
-  }
-}
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../process/browser.js */ "./node_modules/process/browser.js")))
-
-/***/ }),
-
-/***/ "./node_modules/styled-jsx/dist/style.js":
-/*!***********************************************!*\
-  !*** ./node_modules/styled-jsx/dist/style.js ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.flush = flush;
-exports["default"] = void 0;
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _stylesheetRegistry = _interopRequireDefault(__webpack_require__(/*! ./stylesheet-registry */ "./node_modules/styled-jsx/dist/stylesheet-registry.js"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
-
-var styleSheetRegistry = new _stylesheetRegistry["default"]();
-
-var JSXStyle =
-/*#__PURE__*/
-function (_Component) {
-  _inheritsLoose(JSXStyle, _Component);
-
-  function JSXStyle(props) {
-    var _this;
-
-    _this = _Component.call(this, props) || this;
-    _this.prevProps = {};
-    return _this;
-  }
-
-  JSXStyle.dynamic = function dynamic(info) {
-    return info.map(function (tagInfo) {
-      var baseId = tagInfo[0];
-      var props = tagInfo[1];
-      return styleSheetRegistry.computeId(baseId, props);
-    }).join(' ');
-  } // probably faster than PureComponent (shallowEqual)
-  ;
-
-  var _proto = JSXStyle.prototype;
-
-  _proto.shouldComponentUpdate = function shouldComponentUpdate(otherProps) {
-    return this.props.id !== otherProps.id || // We do this check because `dynamic` is an array of strings or undefined.
-    // These are the computed values for dynamic styles.
-    String(this.props.dynamic) !== String(otherProps.dynamic);
-  };
-
-  _proto.componentWillUnmount = function componentWillUnmount() {
-    styleSheetRegistry.remove(this.props);
-  };
-
-  _proto.render = function render() {
-    // This is a workaround to make the side effect async safe in the "render" phase.
-    // See https://github.com/zeit/styled-jsx/pull/484
-    if (this.shouldComponentUpdate(this.prevProps)) {
-      // Updates
-      if (this.prevProps.id) {
-        styleSheetRegistry.remove(this.prevProps);
-      }
-
-      styleSheetRegistry.add(this.props);
-      this.prevProps = this.props;
-    }
-
-    return null;
-  };
-
-  return JSXStyle;
-}(_react.Component);
-
-exports["default"] = JSXStyle;
-
-function flush() {
-  var cssRules = styleSheetRegistry.cssRules();
-  styleSheetRegistry.flush();
-  return cssRules;
-}
-
-/***/ }),
-
-/***/ "./node_modules/styled-jsx/dist/stylesheet-registry.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/styled-jsx/dist/stylesheet-registry.js ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports["default"] = void 0;
-
-var _stringHash = _interopRequireDefault(__webpack_require__(/*! string-hash */ "./node_modules/string-hash/index.js"));
-
-var _stylesheet = _interopRequireDefault(__webpack_require__(/*! ./lib/stylesheet */ "./node_modules/styled-jsx/dist/lib/stylesheet.js"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-var sanitize = function sanitize(rule) {
-  return rule.replace(/\/style/gi, '\\/style');
-};
-
-var StyleSheetRegistry =
-/*#__PURE__*/
-function () {
-  function StyleSheetRegistry(_temp) {
-    var _ref = _temp === void 0 ? {} : _temp,
-        _ref$styleSheet = _ref.styleSheet,
-        styleSheet = _ref$styleSheet === void 0 ? null : _ref$styleSheet,
-        _ref$optimizeForSpeed = _ref.optimizeForSpeed,
-        optimizeForSpeed = _ref$optimizeForSpeed === void 0 ? false : _ref$optimizeForSpeed,
-        _ref$isBrowser = _ref.isBrowser,
-        isBrowser = _ref$isBrowser === void 0 ? typeof window !== 'undefined' : _ref$isBrowser;
-
-    this._sheet = styleSheet || new _stylesheet["default"]({
-      name: 'styled-jsx',
-      optimizeForSpeed: optimizeForSpeed
-    });
-
-    this._sheet.inject();
-
-    if (styleSheet && typeof optimizeForSpeed === 'boolean') {
-      this._sheet.setOptimizeForSpeed(optimizeForSpeed);
-
-      this._optimizeForSpeed = this._sheet.isOptimizeForSpeed();
-    }
-
-    this._isBrowser = isBrowser;
-    this._fromServer = undefined;
-    this._indices = {};
-    this._instancesCounts = {};
-    this.computeId = this.createComputeId();
-    this.computeSelector = this.createComputeSelector();
-  }
-
-  var _proto = StyleSheetRegistry.prototype;
-
-  _proto.add = function add(props) {
-    var _this = this;
-
-    if (undefined === this._optimizeForSpeed) {
-      this._optimizeForSpeed = Array.isArray(props.children);
-
-      this._sheet.setOptimizeForSpeed(this._optimizeForSpeed);
-
-      this._optimizeForSpeed = this._sheet.isOptimizeForSpeed();
-    }
-
-    if (this._isBrowser && !this._fromServer) {
-      this._fromServer = this.selectFromServer();
-      this._instancesCounts = Object.keys(this._fromServer).reduce(function (acc, tagName) {
-        acc[tagName] = 0;
-        return acc;
-      }, {});
-    }
-
-    var _this$getIdAndRules = this.getIdAndRules(props),
-        styleId = _this$getIdAndRules.styleId,
-        rules = _this$getIdAndRules.rules; // Deduping: just increase the instances count.
-
-
-    if (styleId in this._instancesCounts) {
-      this._instancesCounts[styleId] += 1;
-      return;
-    }
-
-    var indices = rules.map(function (rule) {
-      return _this._sheet.insertRule(rule);
-    }) // Filter out invalid rules
-    .filter(function (index) {
-      return index !== -1;
-    });
-    this._indices[styleId] = indices;
-    this._instancesCounts[styleId] = 1;
-  };
-
-  _proto.remove = function remove(props) {
-    var _this2 = this;
-
-    var _this$getIdAndRules2 = this.getIdAndRules(props),
-        styleId = _this$getIdAndRules2.styleId;
-
-    invariant(styleId in this._instancesCounts, "styleId: `" + styleId + "` not found");
-    this._instancesCounts[styleId] -= 1;
-
-    if (this._instancesCounts[styleId] < 1) {
-      var tagFromServer = this._fromServer && this._fromServer[styleId];
-
-      if (tagFromServer) {
-        tagFromServer.parentNode.removeChild(tagFromServer);
-        delete this._fromServer[styleId];
-      } else {
-        this._indices[styleId].forEach(function (index) {
-          return _this2._sheet.deleteRule(index);
-        });
-
-        delete this._indices[styleId];
-      }
-
-      delete this._instancesCounts[styleId];
-    }
-  };
-
-  _proto.update = function update(props, nextProps) {
-    this.add(nextProps);
-    this.remove(props);
-  };
-
-  _proto.flush = function flush() {
-    this._sheet.flush();
-
-    this._sheet.inject();
-
-    this._fromServer = undefined;
-    this._indices = {};
-    this._instancesCounts = {};
-    this.computeId = this.createComputeId();
-    this.computeSelector = this.createComputeSelector();
-  };
-
-  _proto.cssRules = function cssRules() {
-    var _this3 = this;
-
-    var fromServer = this._fromServer ? Object.keys(this._fromServer).map(function (styleId) {
-      return [styleId, _this3._fromServer[styleId]];
-    }) : [];
-
-    var cssRules = this._sheet.cssRules();
-
-    return fromServer.concat(Object.keys(this._indices).map(function (styleId) {
-      return [styleId, _this3._indices[styleId].map(function (index) {
-        return cssRules[index].cssText;
-      }).join(_this3._optimizeForSpeed ? '' : '\n')];
-    }) // filter out empty rules
-    .filter(function (rule) {
-      return Boolean(rule[1]);
-    }));
-  }
-  /**
-   * createComputeId
-   *
-   * Creates a function to compute and memoize a jsx id from a basedId and optionally props.
-   */
-  ;
-
-  _proto.createComputeId = function createComputeId() {
-    var cache = {};
-    return function (baseId, props) {
-      if (!props) {
-        return "jsx-" + baseId;
-      }
-
-      var propsToString = String(props);
-      var key = baseId + propsToString; // return `jsx-${hashString(`${baseId}-${propsToString}`)}`
-
-      if (!cache[key]) {
-        cache[key] = "jsx-" + (0, _stringHash["default"])(baseId + "-" + propsToString);
-      }
-
-      return cache[key];
-    };
-  }
-  /**
-   * createComputeSelector
-   *
-   * Creates a function to compute and memoize dynamic selectors.
-   */
-  ;
-
-  _proto.createComputeSelector = function createComputeSelector(selectoPlaceholderRegexp) {
-    if (selectoPlaceholderRegexp === void 0) {
-      selectoPlaceholderRegexp = /__jsx-style-dynamic-selector/g;
-    }
-
-    var cache = {};
-    return function (id, css) {
-      // Sanitize SSR-ed CSS.
-      // Client side code doesn't need to be sanitized since we use
-      // document.createTextNode (dev) and the CSSOM api sheet.insertRule (prod).
-      if (!this._isBrowser) {
-        css = sanitize(css);
-      }
-
-      var idcss = id + css;
-
-      if (!cache[idcss]) {
-        cache[idcss] = css.replace(selectoPlaceholderRegexp, id);
-      }
-
-      return cache[idcss];
-    };
-  };
-
-  _proto.getIdAndRules = function getIdAndRules(props) {
-    var _this4 = this;
-
-    var css = props.children,
-        dynamic = props.dynamic,
-        id = props.id;
-
-    if (dynamic) {
-      var styleId = this.computeId(id, dynamic);
-      return {
-        styleId: styleId,
-        rules: Array.isArray(css) ? css.map(function (rule) {
-          return _this4.computeSelector(styleId, rule);
-        }) : [this.computeSelector(styleId, css)]
-      };
-    }
-
-    return {
-      styleId: this.computeId(id),
-      rules: Array.isArray(css) ? css : [css]
-    };
-  }
-  /**
-   * selectFromServer
-   *
-   * Collects style tags from the document with id __jsx-XXX
-   */
-  ;
-
-  _proto.selectFromServer = function selectFromServer() {
-    var elements = Array.prototype.slice.call(document.querySelectorAll('[id^="__jsx-"]'));
-    return elements.reduce(function (acc, element) {
-      var id = element.id.slice(2);
-      acc[id] = element;
-      return acc;
-    }, {});
-  };
-
-  return StyleSheetRegistry;
-}();
-
-exports["default"] = StyleSheetRegistry;
-
-function invariant(condition, message) {
-  if (!condition) {
-    throw new Error("StyleSheetRegistry: " + message + ".");
-  }
-}
-
-/***/ }),
-
-/***/ "./node_modules/styled-jsx/style.js":
-/*!******************************************!*\
-  !*** ./node_modules/styled-jsx/style.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(/*! ./dist/style */ "./node_modules/styled-jsx/dist/style.js")
-
-
-/***/ }),
-
-/***/ "./pages/books/[bookId]/[chapterId].js":
-/*!*********************************************!*\
-  !*** ./pages/books/[bookId]/[chapterId].js ***!
-  \*********************************************/
+/***/ "./pages/books/index.js":
+/*!******************************!*\
+  !*** ./pages/books/index.js ***!
+  \******************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-jsx/style */ "./node_modules/styled-jsx/style.js");
-/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_jsx_style__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _utils_calculate_word_duration__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../utils/calculate-word-duration */ "./utils/calculate-word-duration/index.js");
-/* harmony import */ var _utils_calculate_word_duration__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_utils_calculate_word_duration__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var next_config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/config */ "./node_modules/next/dist/next-server/lib/runtime-config.js");
+/* harmony import */ var next_config__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_config__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "/Users/passarellip/CODE/PERSONAL/interactive-audio-ebook-nextjs/pages/books/index.js";
 
-
-var _this = undefined,
-    _jsxFileName = "/Users/passarellip/CODE/PERSONAL/interactive-audio-ebook-nextjs/pages/books/[bookId]/[chapterId].js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
+var _getConfig = next_config__WEBPACK_IMPORTED_MODULE_2___default()(),
+    publicRuntimeConfig = _getConfig.publicRuntimeConfig;
 
-
-
-
-var getData = function getData(id) {
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getData$(_context) {
-    while (1) {
-      switch (_context.prev = _context.next) {
-        case 0:
-          return _context.abrupt("return", __webpack_require__("./prep-utils/json lazy recursive ^\\.\\/.*\\.json$")("./".concat(id, ".json")).then(function (_ref) {
-            var myData = _ref["default"];
-            return myData;
-          }));
-
-        case 1:
-        case "end":
-          return _context.stop();
-      }
-    }
-  }, null, null, null, Promise);
+var basePath = publicRuntimeConfig.basePath;
+var bookData = {
+  gutembergId: 76
 };
 
-var Chapter = function Chapter() {
-  var router = Object(next_router__WEBPACK_IMPORTED_MODULE_3__["useRouter"])();
-  var _router$query = router.query,
-      chapterId = _router$query.chapterId,
-      bookId = _router$query.bookId;
+function Books() {
+  var _this = this;
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(),
-      chapterData = _useState[0],
-      setChapterData = _useState[1];
+  // http://www.gutenberg.org/ebooks/search/?query=tom+sawyer
+  var pids = ['59']; // 13432 - 448','3881'
 
-  var _useState2 = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(0),
-      currentWordIndex = _useState2[0],
-      setCurrentWordIndex = _useState2[1];
-
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(""),
-      bookTitle = _useState3[0],
-      setBookTitle = _useState3[1];
-
-  var audioRef = Object(react__WEBPACK_IMPORTED_MODULE_2__["useRef"])();
-  getData(bookId).then(function (res) {
-    console.log('data 59', res); // setBookData(res);
-
-    console.log('chapterId', chapterId);
-    setBookTitle(res.title); // adjusting chapter id with array index
-
-    var currentChapter = res.chapters[parseInt(chapterId) - 1];
-    setChapterData(currentChapter);
-  })["catch"](function (err) {
-    console.error("couldn 't find book id", bookId);
-  });
-
-  var handleTextClick = function handleTextClick(e) {
-    var index = parseInt(e.target.id);
-    setCurrentWordIndex(index); //    console.log()
-
-    var wordList = chapterData.text.split(' ');
-    var removeCount = wordList.length - index;
-    wordList.splice(index, removeCount);
-    var estimatedTimeOffset = wordList.reduce(function (total, word) {
-      var wordDuration = _utils_calculate_word_duration__WEBPACK_IMPORTED_MODULE_4___default()(word);
-      total += parseFloat(wordDuration);
-      return total;
-    }, 0);
-    console.log('estimatedTimeOffset', estimatedTimeOffset);
-    audioRef.current.currentTime = estimatedTimeOffset;
-    audioRef.current.play();
-  };
-
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    id: "559468140",
-    __self: _this
-  }, ".words.jsx-942533120{cursor:pointer;margin-bottom:17px;font-size:17px;line-height:27px;word-wrap:break-word;}.words.jsx-942533120:hover.jsx-942533120:before{content:\"\u25B6\";color:#008cba;position:absolute;margin-top:-12px;}.past-words.jsx-942533120{color:black;}.future-words.jsx-942533120{color:grey;}audio.jsx-942533120{position:fixed;bottom:0;left:0px;width:100%;}.duration.jsx-942533120{font-size:medium;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9wYXNzYXJlbGxpcC9DT0RFL1BFUlNPTkFML2ludGVyYWN0aXZlLWF1ZGlvLWVib29rLW5leHRqcy9wYWdlcy9ib29rcy9bYm9va0lkXS9bY2hhcHRlcklkXS5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUE4Q2MsQUFJc0IsQUFRSCxBQVFqQixBQUlBLEFBR2tCLEFBUUUsV0FYbkIsQ0FYa0IsQUFPbEIsR0FmdUIsQUF1QlosRUFRYixPQVBhLEVBZFcsT0FlVCxDQXhCTSxVQVVFLEFBZXZCLEtBeEJ1QixZQVVyQixLQVR5QixxQkFDekIiLCJmaWxlIjoiL1VzZXJzL3Bhc3NhcmVsbGlwL0NPREUvUEVSU09OQUwvaW50ZXJhY3RpdmUtYXVkaW8tZWJvb2stbmV4dGpzL3BhZ2VzL2Jvb2tzL1tib29rSWRdL1tjaGFwdGVySWRdLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHt1c2VTdGF0ZSwgdXNlUmVmfSBmcm9tICdyZWFjdCc7XG5pbXBvcnQgeyB1c2VSb3V0ZXIgfSBmcm9tICduZXh0L3JvdXRlcic7XG5pbXBvcnQgY2FsY3VsYXRlV29yZER1cmF0aW9uIGZyb20gJy4uLy4uLy4uL3V0aWxzL2NhbGN1bGF0ZS13b3JkLWR1cmF0aW9uJztcbmNvbnN0IGdldERhdGEgPSBhc3luYyAoaWQpPT57XG4gICAgcmV0dXJuIGltcG9ydCggYC4uLy4uLy4uL3ByZXAtdXRpbHMvanNvbi8ke2lkfS5qc29uYCkudGhlbigoe2RlZmF1bHQ6IG15RGF0YX0pID0+IG15RGF0YSk7XG4gICB9XG5cbmNvbnN0IENoYXB0ZXIgPSAoKSA9PiB7XG4gIGNvbnN0IHJvdXRlciA9IHVzZVJvdXRlcigpXG4gIGNvbnN0IHsgY2hhcHRlcklkLCBib29rSWQgfSA9IHJvdXRlci5xdWVyeVxuICBjb25zdCBbY2hhcHRlckRhdGEsIHNldENoYXB0ZXJEYXRhXSA9IHVzZVN0YXRlKCk7XG4gIGNvbnN0IFtjdXJyZW50V29yZEluZGV4LCBzZXRDdXJyZW50V29yZEluZGV4XSA9IHVzZVN0YXRlKDApO1xuICBjb25zdCBbYm9va1RpdGxlLCBzZXRCb29rVGl0bGVdID0gdXNlU3RhdGUoXCJcIik7XG4gIGNvbnN0IGF1ZGlvUmVmID0gdXNlUmVmKCk7XG4gIGdldERhdGEoYm9va0lkKS50aGVuKChyZXMpPT57XG4gICAgY29uc29sZS5sb2coJ2RhdGEgNTknLCByZXMpO1xuICAgIC8vIHNldEJvb2tEYXRhKHJlcyk7XG4gICAgY29uc29sZS5sb2coJ2NoYXB0ZXJJZCcsY2hhcHRlcklkKVxuICAgIHNldEJvb2tUaXRsZShyZXMudGl0bGUpO1xuICAgIC8vIGFkanVzdGluZyBjaGFwdGVyIGlkIHdpdGggYXJyYXkgaW5kZXhcbiAgICBjb25zdCBjdXJyZW50Q2hhcHRlciA9IHJlcy5jaGFwdGVyc1twYXJzZUludChjaGFwdGVySWQpLTFdO1xuICAgIHNldENoYXB0ZXJEYXRhKGN1cnJlbnRDaGFwdGVyKVxuICAgfSkuY2F0Y2goKGVycik9PntcbiAgICAgY29uc29sZS5lcnJvcihcImNvdWxkbiAndCBmaW5kIGJvb2sgaWRcIiwgYm9va0lkKVxuICAgfSlcblxuICAgY29uc3QgaGFuZGxlVGV4dENsaWNrID0gKGUpPT57XG4gICAgICAgY29uc3QgaW5kZXggPSBwYXJzZUludChlLnRhcmdldC5pZCk7XG4gICAgICAgc2V0Q3VycmVudFdvcmRJbmRleChpbmRleCk7XG4gICAgLy8gICAgY29uc29sZS5sb2coKVxuICAgICAgIGNvbnN0IHdvcmRMaXN0ID0gY2hhcHRlckRhdGEudGV4dC5zcGxpdCgnICcpO1xuICAgICAgIGNvbnN0IHJlbW92ZUNvdW50ID0gd29yZExpc3QubGVuZ3RoIC0gaW5kZXg7XG4gICAgICAgd29yZExpc3Quc3BsaWNlKCBpbmRleCwgcmVtb3ZlQ291bnQgKVxuICAgICAgIGNvbnN0IGVzdGltYXRlZFRpbWVPZmZzZXQgPSB3b3JkTGlzdC5yZWR1Y2UoKHRvdGFsLCB3b3JkKT0+e1xuICAgICAgICAgICAgY29uc3Qgd29yZER1cmF0aW9uID0gY2FsY3VsYXRlV29yZER1cmF0aW9uKHdvcmQpO1xuICAgICAgICAgICAgdG90YWwgKz0gcGFyc2VGbG9hdCh3b3JkRHVyYXRpb24pO1xuICAgICAgICAgICAgcmV0dXJuIHRvdGFsO1xuICAgICAgIH0sIDApXG5cbiAgICAgICBjb25zb2xlLmxvZygnZXN0aW1hdGVkVGltZU9mZnNldCcsZXN0aW1hdGVkVGltZU9mZnNldClcbiAgICAgICBhdWRpb1JlZi5jdXJyZW50LmN1cnJlbnRUaW1lICA9IGVzdGltYXRlZFRpbWVPZmZzZXQ7XG4gICAgICAgYXVkaW9SZWYuY3VycmVudC5wbGF5KClcbiAgIH1cblxuXG5yZXR1cm4gKDw+XG4gIDxzdHlsZSBqc3g+e2BcbiAgXG4gIC53b3JkcyB7XG4gICAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgICBtYXJnaW4tYm90dG9tOiAxN3B4O1xuICAgICAgZm9udC1zaXplOiAxN3B4O1xuICAgICAgbGluZS1oZWlnaHQ6IDI3cHg7XG4gICAgICB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7XG4gIH1cbiAgXG4gIC53b3Jkczpob3ZlcjpiZWZvcmUge1xuICAgICAgY29udGVudDogXCLilrZcIjtcbiAgICAgIGNvbG9yOiAjMDA4Y2JhO1xuICAgIC8vICAgb3BhY2l0eTogMC42O1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgbWFyZ2luLXRvcDogLTEycHg7XG4gIH1cbiAgLnBhc3Qtd29yZHN7XG4gICAgY29sb3I6IGJsYWNrXG4gIH1cblxuICAuZnV0dXJlLXdvcmRze1xuICAgIGNvbG9yOiBncmV5XG4gIH1cblxuICBhdWRpb3tcbiAgICBwb3NpdGlvbjogZml4ZWQ7XG4gICAgYm90dG9tOiAwO1xuICAgIGxlZnQ6IDBweDtcbiAgICB3aWR0aDogMTAwJTtcbn1cblxuXG4gIC5kdXJhdGlvbntcbiAgICBmb250LXNpemU6IG1lZGl1bTtcbn1cbiAgYH08L3N0eWxlPlxuICA8c3R5bGUganN4IGdsb2JhbD57YFxuIFxuICBcbiAgYH08L3N0eWxlPlxuICAgIDxoMj57Y2hhcHRlckRhdGEgJiYgY2hhcHRlckRhdGEudGl0bGV9IC0ge2Jvb2tUaXRsZSYmYm9va1RpdGxlfSA8c3BhbiBjbGFzc05hbWU9XCJkdXJhdGlvblwiPntjaGFwdGVyRGF0YSAmJiBjaGFwdGVyRGF0YS5kdXJhdGlvbn0gPC9zcGFuPjwvaDI+XG4gIFxuICA8YnIvPlxuICA8YnIvPlxuICB7Y2hhcHRlckRhdGEgJiYgKCA8YXVkaW8gIHJlZj17YXVkaW9SZWZ9IHNyYz17Y2hhcHRlckRhdGEudXJsfSBjb250cm9scyB0eXBlPXtjaGFwdGVyRGF0YS50eXBlfSAvPiApfVxuICA8YXJ0aWNsZSBvbkNsaWNrPXtoYW5kbGVUZXh0Q2xpY2t9PlxuICAgIHtjaGFwdGVyRGF0YSAmJiBjaGFwdGVyRGF0YS50ZXh0LnNwbGl0KCcgJykubWFwKCh3b3JkLCBpbmRleCk9PnsgcmV0dXJuIDxzcGFuIGNsYXNzTmFtZT17W1wid29yZHNcIiwgaW5kZXggPD0gY3VycmVudFdvcmRJbmRleD8gIFwicGFzdC13b3Jkc1wiOlwiZnV0dXJlLXdvcmRzXCJdLmpvaW4oJyAnKX0gaWQ9e2luZGV4fT57d29yZH0gPC9zcGFuPn0pfVxuICA8L2FydGljbGU+XG4gIDxici8+XG4gIDxici8+XG4gIDxici8+XG4gIDxici8+XG5cbiAgXG4gIDwvPilcbn1cblxuZXhwb3J0IGRlZmF1bHQgQ2hhcHRlclxuXG5DaGFwdGVyLmdldEluaXRpYWxQcm9wcyA9IGFzeW5jIGN0eCA9PiB7XG4gICAgLy8gY29uc3QgcmVzID0gYXdhaXQgZmV0Y2goJ2h0dHBzOi8vYXBpLmdpdGh1Yi5jb20vcmVwb3MvemVpdC9uZXh0LmpzJylcbiAgICAvLyBjb25zdCBqc29uID0gYXdhaXQgcmVzLmpzb24oKVxuICAgIHJldHVybiB7IH1cbn0iXX0= */\n/*@ sourceURL=/Users/passarellip/CODE/PERSONAL/interactive-audio-ebook-nextjs/pages/books/[bookId]/[chapterId].js */"), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    id: "2639107941",
-    __self: _this
-  }, "\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9wYXNzYXJlbGxpcC9DT0RFL1BFUlNPTkFML2ludGVyYWN0aXZlLWF1ZGlvLWVib29rLW5leHRqcy9wYWdlcy9ib29rcy9bYm9va0lkXS9bY2hhcHRlcklkXS5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFtRnFCIiwiZmlsZSI6Ii9Vc2Vycy9wYXNzYXJlbGxpcC9DT0RFL1BFUlNPTkFML2ludGVyYWN0aXZlLWF1ZGlvLWVib29rLW5leHRqcy9wYWdlcy9ib29rcy9bYm9va0lkXS9bY2hhcHRlcklkXS5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7dXNlU3RhdGUsIHVzZVJlZn0gZnJvbSAncmVhY3QnO1xuaW1wb3J0IHsgdXNlUm91dGVyIH0gZnJvbSAnbmV4dC9yb3V0ZXInO1xuaW1wb3J0IGNhbGN1bGF0ZVdvcmREdXJhdGlvbiBmcm9tICcuLi8uLi8uLi91dGlscy9jYWxjdWxhdGUtd29yZC1kdXJhdGlvbic7XG5jb25zdCBnZXREYXRhID0gYXN5bmMgKGlkKT0+e1xuICAgIHJldHVybiBpbXBvcnQoIGAuLi8uLi8uLi9wcmVwLXV0aWxzL2pzb24vJHtpZH0uanNvbmApLnRoZW4oKHtkZWZhdWx0OiBteURhdGF9KSA9PiBteURhdGEpO1xuICAgfVxuXG5jb25zdCBDaGFwdGVyID0gKCkgPT4ge1xuICBjb25zdCByb3V0ZXIgPSB1c2VSb3V0ZXIoKVxuICBjb25zdCB7IGNoYXB0ZXJJZCwgYm9va0lkIH0gPSByb3V0ZXIucXVlcnlcbiAgY29uc3QgW2NoYXB0ZXJEYXRhLCBzZXRDaGFwdGVyRGF0YV0gPSB1c2VTdGF0ZSgpO1xuICBjb25zdCBbY3VycmVudFdvcmRJbmRleCwgc2V0Q3VycmVudFdvcmRJbmRleF0gPSB1c2VTdGF0ZSgwKTtcbiAgY29uc3QgW2Jvb2tUaXRsZSwgc2V0Qm9va1RpdGxlXSA9IHVzZVN0YXRlKFwiXCIpO1xuICBjb25zdCBhdWRpb1JlZiA9IHVzZVJlZigpO1xuICBnZXREYXRhKGJvb2tJZCkudGhlbigocmVzKT0+e1xuICAgIGNvbnNvbGUubG9nKCdkYXRhIDU5JywgcmVzKTtcbiAgICAvLyBzZXRCb29rRGF0YShyZXMpO1xuICAgIGNvbnNvbGUubG9nKCdjaGFwdGVySWQnLGNoYXB0ZXJJZClcbiAgICBzZXRCb29rVGl0bGUocmVzLnRpdGxlKTtcbiAgICAvLyBhZGp1c3RpbmcgY2hhcHRlciBpZCB3aXRoIGFycmF5IGluZGV4XG4gICAgY29uc3QgY3VycmVudENoYXB0ZXIgPSByZXMuY2hhcHRlcnNbcGFyc2VJbnQoY2hhcHRlcklkKS0xXTtcbiAgICBzZXRDaGFwdGVyRGF0YShjdXJyZW50Q2hhcHRlcilcbiAgIH0pLmNhdGNoKChlcnIpPT57XG4gICAgIGNvbnNvbGUuZXJyb3IoXCJjb3VsZG4gJ3QgZmluZCBib29rIGlkXCIsIGJvb2tJZClcbiAgIH0pXG5cbiAgIGNvbnN0IGhhbmRsZVRleHRDbGljayA9IChlKT0+e1xuICAgICAgIGNvbnN0IGluZGV4ID0gcGFyc2VJbnQoZS50YXJnZXQuaWQpO1xuICAgICAgIHNldEN1cnJlbnRXb3JkSW5kZXgoaW5kZXgpO1xuICAgIC8vICAgIGNvbnNvbGUubG9nKClcbiAgICAgICBjb25zdCB3b3JkTGlzdCA9IGNoYXB0ZXJEYXRhLnRleHQuc3BsaXQoJyAnKTtcbiAgICAgICBjb25zdCByZW1vdmVDb3VudCA9IHdvcmRMaXN0Lmxlbmd0aCAtIGluZGV4O1xuICAgICAgIHdvcmRMaXN0LnNwbGljZSggaW5kZXgsIHJlbW92ZUNvdW50IClcbiAgICAgICBjb25zdCBlc3RpbWF0ZWRUaW1lT2Zmc2V0ID0gd29yZExpc3QucmVkdWNlKCh0b3RhbCwgd29yZCk9PntcbiAgICAgICAgICAgIGNvbnN0IHdvcmREdXJhdGlvbiA9IGNhbGN1bGF0ZVdvcmREdXJhdGlvbih3b3JkKTtcbiAgICAgICAgICAgIHRvdGFsICs9IHBhcnNlRmxvYXQod29yZER1cmF0aW9uKTtcbiAgICAgICAgICAgIHJldHVybiB0b3RhbDtcbiAgICAgICB9LCAwKVxuXG4gICAgICAgY29uc29sZS5sb2coJ2VzdGltYXRlZFRpbWVPZmZzZXQnLGVzdGltYXRlZFRpbWVPZmZzZXQpXG4gICAgICAgYXVkaW9SZWYuY3VycmVudC5jdXJyZW50VGltZSAgPSBlc3RpbWF0ZWRUaW1lT2Zmc2V0O1xuICAgICAgIGF1ZGlvUmVmLmN1cnJlbnQucGxheSgpXG4gICB9XG5cblxucmV0dXJuICg8PlxuICA8c3R5bGUganN4PntgXG4gIFxuICAud29yZHMge1xuICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgbWFyZ2luLWJvdHRvbTogMTdweDtcbiAgICAgIGZvbnQtc2l6ZTogMTdweDtcbiAgICAgIGxpbmUtaGVpZ2h0OiAyN3B4O1xuICAgICAgd29yZC13cmFwOiBicmVhay13b3JkO1xuICB9XG4gIFxuICAud29yZHM6aG92ZXI6YmVmb3JlIHtcbiAgICAgIGNvbnRlbnQ6IFwi4pa2XCI7XG4gICAgICBjb2xvcjogIzAwOGNiYTtcbiAgICAvLyAgIG9wYWNpdHk6IDAuNjtcbiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgIG1hcmdpbi10b3A6IC0xMnB4O1xuICB9XG4gIC5wYXN0LXdvcmRze1xuICAgIGNvbG9yOiBibGFja1xuICB9XG5cbiAgLmZ1dHVyZS13b3Jkc3tcbiAgICBjb2xvcjogZ3JleVxuICB9XG5cbiAgYXVkaW97XG4gICAgcG9zaXRpb246IGZpeGVkO1xuICAgIGJvdHRvbTogMDtcbiAgICBsZWZ0OiAwcHg7XG4gICAgd2lkdGg6IDEwMCU7XG59XG5cblxuICAuZHVyYXRpb257XG4gICAgZm9udC1zaXplOiBtZWRpdW07XG59XG4gIGB9PC9zdHlsZT5cbiAgPHN0eWxlIGpzeCBnbG9iYWw+e2BcbiBcbiAgXG4gIGB9PC9zdHlsZT5cbiAgICA8aDI+e2NoYXB0ZXJEYXRhICYmIGNoYXB0ZXJEYXRhLnRpdGxlfSAtIHtib29rVGl0bGUmJmJvb2tUaXRsZX0gPHNwYW4gY2xhc3NOYW1lPVwiZHVyYXRpb25cIj57Y2hhcHRlckRhdGEgJiYgY2hhcHRlckRhdGEuZHVyYXRpb259IDwvc3Bhbj48L2gyPlxuICBcbiAgPGJyLz5cbiAgPGJyLz5cbiAge2NoYXB0ZXJEYXRhICYmICggPGF1ZGlvICByZWY9e2F1ZGlvUmVmfSBzcmM9e2NoYXB0ZXJEYXRhLnVybH0gY29udHJvbHMgdHlwZT17Y2hhcHRlckRhdGEudHlwZX0gLz4gKX1cbiAgPGFydGljbGUgb25DbGljaz17aGFuZGxlVGV4dENsaWNrfT5cbiAgICB7Y2hhcHRlckRhdGEgJiYgY2hhcHRlckRhdGEudGV4dC5zcGxpdCgnICcpLm1hcCgod29yZCwgaW5kZXgpPT57IHJldHVybiA8c3BhbiBjbGFzc05hbWU9e1tcIndvcmRzXCIsIGluZGV4IDw9IGN1cnJlbnRXb3JkSW5kZXg/ICBcInBhc3Qtd29yZHNcIjpcImZ1dHVyZS13b3Jkc1wiXS5qb2luKCcgJyl9IGlkPXtpbmRleH0+e3dvcmR9IDwvc3Bhbj59KX1cbiAgPC9hcnRpY2xlPlxuICA8YnIvPlxuICA8YnIvPlxuICA8YnIvPlxuICA8YnIvPlxuXG4gIFxuICA8Lz4pXG59XG5cbmV4cG9ydCBkZWZhdWx0IENoYXB0ZXJcblxuQ2hhcHRlci5nZXRJbml0aWFsUHJvcHMgPSBhc3luYyBjdHggPT4ge1xuICAgIC8vIGNvbnN0IHJlcyA9IGF3YWl0IGZldGNoKCdodHRwczovL2FwaS5naXRodWIuY29tL3JlcG9zL3plaXQvbmV4dC5qcycpXG4gICAgLy8gY29uc3QganNvbiA9IGF3YWl0IHJlcy5qc29uKClcbiAgICByZXR1cm4geyB9XG59Il19 */\n/*@ sourceURL=/Users/passarellip/CODE/PERSONAL/interactive-audio-ebook-nextjs/pages/books/[bookId]/[chapterId].js */"), __jsx("h2", {
-    className: "jsx-942533120",
-    __self: _this,
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("h2", {
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 88,
+      lineNumber: 13,
+      columnNumber: 15
+    }
+  }, "Books"), __jsx("ul", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15,
       columnNumber: 5
     }
-  }, chapterData && chapterData.title, " - ", bookTitle && bookTitle, " ", __jsx("span", {
-    className: "jsx-942533120" + " " + "duration",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 88,
-      columnNumber: 69
-    }
-  }, chapterData && chapterData.duration, " ")), __jsx("br", {
-    className: "jsx-942533120",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 90,
-      columnNumber: 3
-    }
-  }), __jsx("br", {
-    className: "jsx-942533120",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 91,
-      columnNumber: 3
-    }
-  }), chapterData && __jsx("audio", {
-    ref: audioRef,
-    src: chapterData.url,
-    controls: true,
-    type: chapterData.type,
-    className: "jsx-942533120",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 92,
-      columnNumber: 21
-    }
-  }), __jsx("article", {
-    onClick: handleTextClick,
-    className: "jsx-942533120",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 93,
-      columnNumber: 3
-    }
-  }, chapterData && chapterData.text.split(' ').map(function (word, index) {
-    return __jsx("span", {
-      id: index,
-      className: "jsx-942533120" + " " + (["words", index <= currentWordIndex ? "past-words" : "future-words"].join(' ') || ""),
+  }, pids.map(function (bookId) {
+    return __jsx("li", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 94,
-        columnNumber: 77
+        lineNumber: 17,
+        columnNumber: 9
       }
-    }, word, " ");
-  })), __jsx("br", {
-    className: "jsx-942533120",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 96,
-      columnNumber: 3
-    }
-  }), __jsx("br", {
-    className: "jsx-942533120",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 97,
-      columnNumber: 3
-    }
-  }), __jsx("br", {
-    className: "jsx-942533120",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 98,
-      columnNumber: 3
-    }
-  }), __jsx("br", {
-    className: "jsx-942533120",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 99,
-      columnNumber: 3
-    }
-  }));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Chapter);
-
-Chapter.getInitialProps = function _callee(ctx) {
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function _callee$(_context2) {
-    while (1) {
-      switch (_context2.prev = _context2.next) {
-        case 0:
-          return _context2.abrupt("return", {});
-
-        case 1:
-        case "end":
-          return _context2.stop();
+    }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      href: "".concat(basePath, "/books/[bookId]"),
+      as: "".concat(basePath, "/books/").concat(bookId),
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 18,
+        columnNumber: 11
       }
-    }
-  }, null, null, null, Promise);
-};
+    }, __jsx("a", {
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 19,
+        columnNumber: 13
+      }
+    }, "bookId ", bookId)));
+  })));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Books);
 
 /***/ }),
 
-/***/ "./prep-utils/json lazy recursive ^\\.\\/.*\\.json$":
-/*!**************************************************************!*\
-  !*** ./prep-utils/json lazy ^\.\/.*\.json$ namespace object ***!
-  \**************************************************************/
+/***/ 2:
+/*!**************************************************************************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2Fbooks&absolutePagePath=%2FUsers%2Fpassarellip%2FCODE%2FPERSONAL%2Finteractive-audio-ebook-nextjs%2Fpages%2Fbooks%2Findex.js ***!
+  \**************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var map = {
-	"./59.json": [
-		"./prep-utils/json/59.json",
-		1
-	]
-};
-function webpackAsyncContext(req) {
-	if(!__webpack_require__.o(map, req)) {
-		return Promise.resolve().then(function() {
-			var e = new Error("Cannot find module '" + req + "'");
-			e.code = 'MODULE_NOT_FOUND';
-			throw e;
-		});
-	}
-
-	var ids = map[req], id = ids[0];
-	return __webpack_require__.e(ids[1]).then(function() {
-		return __webpack_require__.t(id, 3);
-	});
-}
-webpackAsyncContext.keys = function webpackAsyncContextKeys() {
-	return Object.keys(map);
-};
-webpackAsyncContext.id = "./prep-utils/json lazy recursive ^\\.\\/.*\\.json$";
-module.exports = webpackAsyncContext;
-
-/***/ }),
-
-/***/ "./utils/calculate-word-duration/index.js":
-/*!************************************************!*\
-  !*** ./utils/calculate-word-duration/index.js ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// https://github.com/chrisbaume/webaligner/blob/9458df57d854e9df64a54bc23a7f0856de49730f/webaligner.js#L7
-// Chris's heuristic to estimate duration of a word, based on looking across a number of transcripts.
-// estimates the duration of a word, in seconds
-function calculateWordDuration(word) {
-  return 0.08475 + 0.05379 * word.length;
-}
-
-module.exports = calculateWordDuration;
-
-/***/ }),
-
-/***/ 4:
-/*!************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2Fbooks%2F%5BbookId%5D%2F%5BchapterId%5D&absolutePagePath=%2FUsers%2Fpassarellip%2FCODE%2FPERSONAL%2Finteractive-audio-ebook-nextjs%2Fpages%2Fbooks%2F%5BbookId%5D%2F%5BchapterId%5D.js ***!
-  \************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fbooks%2F%5BbookId%5D%2F%5BchapterId%5D&absolutePagePath=%2FUsers%2Fpassarellip%2FCODE%2FPERSONAL%2Finteractive-audio-ebook-nextjs%2Fpages%2Fbooks%2F%5BbookId%5D%2F%5BchapterId%5D.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fbooks%2F%5BbookId%5D%2F%5BchapterId%5D&absolutePagePath=%2FUsers%2Fpassarellip%2FCODE%2FPERSONAL%2Finteractive-audio-ebook-nextjs%2Fpages%2Fbooks%2F%5BbookId%5D%2F%5BchapterId%5D.js!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fbooks&absolutePagePath=%2FUsers%2Fpassarellip%2FCODE%2FPERSONAL%2Finteractive-audio-ebook-nextjs%2Fpages%2Fbooks%2Findex.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fbooks&absolutePagePath=%2FUsers%2Fpassarellip%2FCODE%2FPERSONAL%2Finteractive-audio-ebook-nextjs%2Fpages%2Fbooks%2Findex.js!./");
 
 
 /***/ }),
@@ -4202,5 +4468,5 @@ module.exports = dll_2adc2403d89adc16ead0;
 
 /***/ })
 
-},[[4,"static/runtime/webpack.js"]]]);
-//# sourceMappingURL=[chapterId].js.map
+},[[2,"static/runtime/webpack.js"]]]);
+//# sourceMappingURL=books.js.map
