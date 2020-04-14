@@ -2463,12 +2463,12 @@ if (false) {} else {
 
 /***/ "./node_modules/react/index.js":
 /*!*******************************************************************************************!*\
-  !*** delegated ./node_modules/react/index.js from dll-reference dll_2adc2403d89adc16ead0 ***!
+  !*** delegated ./node_modules/react/index.js from dll-reference dll_c2e10d183b950a67d9e7 ***!
   \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_2adc2403d89adc16ead0 */ "dll-reference dll_2adc2403d89adc16ead0"))("./node_modules/react/index.js");
+module.exports = (__webpack_require__(/*! dll-reference dll_c2e10d183b950a67d9e7 */ "dll-reference dll_c2e10d183b950a67d9e7"))("./node_modules/react/index.js");
 
 /***/ }),
 
@@ -4058,7 +4058,7 @@ module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 2:
+/***/ 4:
 /*!************************************************************************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fbooks%2F%5BbookId%5D%2F%5BchapterId%5D&absolutePagePath=%2FUsers%2Fpassarellip%2FCODE%2FPERSONAL%2Finteractive-audio-ebook-nextjs%2Fpages%2Fbooks%2F%5BbookId%5D%2F%5BchapterId%5D.js ***!
   \************************************************************************************************************************************************************************************************************************************/
@@ -4070,16 +4070,16 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fbooks%
 
 /***/ }),
 
-/***/ "dll-reference dll_2adc2403d89adc16ead0":
+/***/ "dll-reference dll_c2e10d183b950a67d9e7":
 /*!*******************************************!*\
-  !*** external "dll_2adc2403d89adc16ead0" ***!
+  !*** external "dll_c2e10d183b950a67d9e7" ***!
   \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = dll_2adc2403d89adc16ead0;
+module.exports = dll_c2e10d183b950a67d9e7;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[4,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=[chapterId].js.map
