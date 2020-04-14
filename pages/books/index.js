@@ -7,8 +7,9 @@ const bookData = {
   gutembergId: 76
 }
 function Books() {
-    const pids = ['59', '60', '61']
-
+  // http://www.gutenberg.org/ebooks/search/?query=tom+sawyer
+    const pids = ['59']
+// 13432 - 448','3881'
     return (<><h2>Books</h2>
     
     <ul>
@@ -18,7 +19,6 @@ function Books() {
             <a>bookId {bookId}
             {/* <img src={`https://www.gutenberg.org/files/${bookData.gutembergId}/${bookData.gutembergId}-h/images/bookcover.jpg`} style={{width:'200px',height:'auto'}}/> */}
             {/* <img src={`https://www.gutenberg.org/files/${bookData.gutembergId}/${bookData.gutembergId}-h/images/frontispiece.jpg`} style={{width:'200px', height:'auto'}}/> */}
-
             </a>
           </Link>
         </li>

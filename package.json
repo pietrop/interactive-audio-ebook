@@ -8,7 +8,7 @@
     "start": "next start",
     "export": "next export",
     "start:transcribe2": "node --experimental-worker ./prep-utils/index.js",
-    "start:transcribe": "node ./prep-utils/index.js",
+    "start:add": "node ./prep-utils/index.js",
     "deploy": "rm -rf node_modules/.cache && rimraf out && next build && next export && touch out/.nojekyll && gh-pages -d out -t true"
   },
   "repository": {

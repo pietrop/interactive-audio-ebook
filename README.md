@@ -31,3 +31,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 
 <!-- python -m SimpleHTTPServer 8000 -->
+
+<!-- Adding a new book
+
+ -->

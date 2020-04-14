@@ -25,6 +25,7 @@ export default function MyApp({ Component, pageProps }) {
     <Head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0"/>
     <link crossorigin rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dmhendricks/bootstrap-grid-css@4.1.3/dist/css/bootstrap-grid.min.css" />
+   <title>Interactive audio ebooks</title>
    </Head>
         <Navbar bg="primary"  variant="dark" expand="md" fixed="top">
         <Navbar.Brand href={`${basePath}/`}>Interactive audio ebooks</Navbar.Brand>

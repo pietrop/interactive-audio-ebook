@@ -41,7 +41,10 @@ async function getChaptersInfoFromFeed(librivoxBookId){
    * to use in front end, to embed audio in audio player, already hosted on librivox
    * eg get all the audios urls via RSS feed for all chapters https://librivox.org/rss/59
    */
-  let feed = await parser.parseURL(`https://librivox.org/rss/${librivoxBookId}`);
+  const feedUrl = `https://librivox.org/rss/${librivoxBookId}`;
+  console.log(feedUrl)
+  let feed = await parser.parseURL(feedUrl);
+  console.log(feed)
   // fs.writeFileSync('./feed.json', JSON.stringify(feed))
   const { title, description, link } = feed;
   const audioEbook = {
@@ -103,8 +106,16 @@ async function combineEbookChaptersWithAudioBookChapters(audioEbook, ebookChapte
      * Combine ebook chapters with audiobook chapters
      */
      audioEbook.chapters = audioEbook.chapters.map((chapter, index) => {
-        chapter.text = ebookChapters[index].text;
-        return chapter;
+         try{
+            //  if(ebookChapters[index]){
+                chapter.text = ebookChapters[index].text;
+                return chapter;
+            //  }
+         }
+         catch(e){
+             console.error('combineEbookChaptersWithAudioBookChapters ')
+         }
+       
     })
     return audioEbook;
 }
@@ -161,7 +172,7 @@ async function downloadAudioFilesLocally(librivoxBookId,jsonData){
  */
 async function main(librivoxBookId) {  
     const audioEbook = await getChaptersInfoFromFeed(librivoxBookId);
-    // console.log(audioEbook)
+    console.log(audioEbook)
     console.log('Downlaod audioEbook')
     const jsonData = await getLibriVoxData(librivoxBookId)
     console.log('getLibriVoxData jsonData')
@@ -171,7 +182,7 @@ async function main(librivoxBookId) {
     console.log('gutembergEbook gutembergEbook')
     // TODO: transform to pass book rather then file path 
     const chapterisedBook = await chapteriseEbook(filename);
-    console.log('chapterisedBook chapterisedBook')
+    console.log('chapterisedBook chapterisedBook',JSON.stringify(chapterisedBook,null,2))
     const audioEbookWithText = await combineEbookChaptersWithAudioBookChapters(audioEbook, chapterisedBook);
     console.log('audioEbookWithText audioEbookWithText')
     // Download audio files
