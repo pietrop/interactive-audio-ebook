@@ -2,14 +2,36 @@
   "name": "interactive-audio-ebook-nextjs",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://pietrop.github.io/interactive-audio-ebook-nextjs",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "export": "next export",
+    "start:transcribe2": "node --experimental-worker ./prep-utils/index.js",
+    "start:transcribe": "node ./prep-utils/index.js",
+    "deploy": "rm -rf node_modules/.cache && rimraf out && next build && next export && touch out/.nojekyll && gh-pages -d out -t true"
   },
   "dependencies": {
+    "gh-pages": "^2.2.0",
     "next": "9.3.4",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "rimraf": "^3.0.2",
+    "save-dev": "0.0.1-security"
+  },
+  "devDependencies": {
+    "@bbc/stt-align-node": "^1.1.0",
+    "cheerio": "^1.0.0-rc.3",
+    "download": "^7.1.0",
+    "node-html-parser": "^1.1.16",
+    "nomar": "^1.1.0",
+    "pocketsphinx-stt": "^3.0.0-alpha.2",
+    "request": "^2.88.0",
+    "rss-parser": "^3.7.2",
+    "unzip": "^0.1.11",
+    "xml-js": "^1.6.11",
+    "zlib": "^1.0.5",
+    "subtitlescomposer": "git+https://github.com/pietrop/subtitlesComposer.git"
   }
 }
