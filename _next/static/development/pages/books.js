@@ -4445,7 +4445,7 @@ function Books() {
 
 /***/ }),
 
-/***/ 2:
+/***/ 1:
 /*!**************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fbooks&absolutePagePath=%2FUsers%2Fpassarellip%2FCODE%2FPERSONAL%2Finteractive-audio-ebook-nextjs%2Fpages%2Fbooks%2Findex.js ***!
   \**************************************************************************************************************************************************************************/
@@ -4468,5 +4468,5 @@ module.exports = dll_2adc2403d89adc16ead0;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=books.js.map
