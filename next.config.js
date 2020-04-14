@@ -39,7 +39,7 @@ module.exports = {
       // const data = await res.json();
       // const books = data.map(entry => entry);
   
-      booksFileNames.filter((fileName)=>{fileName!=='index.json'}).forEach(bookFileName => {
+      booksFileNames.forEach(bookFileName => {
   
         const bookId = parseId(bookFileName);
         // Static pages for books
