@@ -1,10 +1,9 @@
 import Link from 'next/link';
-import getConfig from 'next/config'
+import getConfig from 'next/config';
 import { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 const { publicRuntimeConfig } = getConfig();
 const basePath = publicRuntimeConfig.basePath;
 
@@ -21,7 +20,7 @@ function Books() {
         <Col>
           <Link href={`${basePath}/books/[bookId]`} as={`${basePath}/books/${bookId}`}>
             <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="https://via.placeholder.com/750" />
+            <Card.Img variant="top" src="https://via.placeholder.com/750" fluid />
             <Card.Body>
               <Card.Title> bookId {bookId} </Card.Title>
               <Card.Text>

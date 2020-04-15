@@ -23,7 +23,8 @@ const Home = () => (
       {/* <img class="card-img-top" src="https://via.placeholder.com/750"></img> */}
       <Row>
         <Col>
-          <Image src={"https://via.placeholder.com/750x300"} fluid />
+          <Image src={"https://via.placeholder.com/750x300"} fluid style={{width: '100%'}}/>
+
         </Col>
       </Row>
       <br/>

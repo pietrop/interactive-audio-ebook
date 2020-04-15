@@ -233,8 +233,8 @@ async function main(librivoxBookId) {
      * chapters with promses
      */
     const promises = []
-    // audioEbookWithTextAndGutembergId.chapters.map( async (chapter)=>{
-         audioEbookWithTextAndGutembergId.chapters.slice(0,2).map( async (chapter)=>{
+    audioEbookWithTextAndGutembergId.chapters.map( async (chapter)=>{
+        //  audioEbookWithTextAndGutembergId.chapters.slice(0,2).map( async (chapter)=>{
         // const {words, paragraphs } = await transcribeAndAlign({ url: chapter.url, text: chapter.text}); 
         promises.push(transcribeAndAlign({ url: chapter.url, text: chapter.text}))
         // chapter.words = words;
@@ -245,8 +245,8 @@ async function main(librivoxBookId) {
     const transcribeAndAlignPromises = await Promise.all(promises)
     console.log('transcribeAndAlignPromises',transcribeAndAlignPromises)
     // .then(response => console.log(response)) 
-    // const audioEbookWithTextAndGutembergIdAligned = audioEbookWithTextAndGutembergId.chapters.map((chapter, index)=>{
-     audioEbookWithTextAndGutembergId.chapters = audioEbookWithTextAndGutembergId.chapters.slice(0,2).map((chapter, index)=>{
+    const audioEbookWithTextAndGutembergIdAligned = audioEbookWithTextAndGutembergId.chapters.map((chapter, index)=>{
+    //  audioEbookWithTextAndGutembergId.chapters = audioEbookWithTextAndGutembergId.chapters.slice(0,2).map((chapter, index)=>{
        const {words, paragraphs} = transcribeAndAlignPromises[index];
        chapter.words = words;
         //  chapter.paragraphs = paragraphs;
