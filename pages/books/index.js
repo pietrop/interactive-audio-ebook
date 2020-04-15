@@ -1,30 +1,42 @@
 import Link from 'next/link';
 import getConfig from 'next/config'
+import { useState } from 'react';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 const { publicRuntimeConfig } = getConfig();
 const basePath = publicRuntimeConfig.basePath;
 
-const bookData = {
-  gutembergId: 76
-}
 function Books() {
   // http://www.gutenberg.org/ebooks/search/?query=tom+sawyer
     const pids = ['59']
-// 13432 - 448','3881'
     return (<><h2>Books</h2>
-    
-    <ul>
+    <br/>
+    <br/>
+    <Row>
+
+
     { pids.map(bookId => (
-        <li>
+        <Col>
           <Link href={`${basePath}/books/[bookId]`} as={`${basePath}/books/${bookId}`}>
-            <a>bookId {bookId}
-            {/* <img src={`https://www.gutenberg.org/files/${bookData.gutembergId}/${bookData.gutembergId}-h/images/bookcover.jpg`} style={{width:'200px',height:'auto'}}/> */}
-            {/* <img src={`https://www.gutenberg.org/files/${bookData.gutembergId}/${bookData.gutembergId}-h/images/frontispiece.jpg`} style={{width:'200px', height:'auto'}}/> */}
-            </a>
+            <Card style={{ width: '18rem' }}>
+            <Card.Img variant="top" src="https://via.placeholder.com/750" />
+            <Card.Body>
+              <Card.Title> bookId {bookId} </Card.Title>
+              <Card.Text>
+                Description
+              </Card.Text>
+              {/* <Button variant="primary">Listen/Read</Button> */}
+            </Card.Body>
+            </Card>
           </Link>
-        </li>
+          <br/>
+        </Col>
       ))
     }
-    </ul>
+    </Row>
+
     
     </>)
   }

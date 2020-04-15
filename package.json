@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "export": "next export",
-    "start:transcribe2": "node --experimental-worker ./prep-utils/index.js",
-    "start:add": "node ./prep-utils/index.js",
+    "start:add": "node --experimental-worker ./prep-utils/index.js",
     "deploy": "rm -rf node_modules/.cache && rimraf out && next build && next export && touch out/.nojekyll && gh-pages -d out -t true"
   },
   "repository": {
@@ -20,6 +19,7 @@
   "homepage": "http://pietropassarelli.com/interactive-audio-ebook",
   "dependencies": {
     "bootswatch": "^4.4.1",
+    "cuid": "^2.1.8",
     "gh-pages": "^2.2.0",
     "isomorphic-unfetch": "^3.0.0",
     "next": "9.3.4",
@@ -27,10 +27,10 @@
     "react-bootstrap": "^1.0.0",
     "react-dom": "16.13.1",
     "rimraf": "^3.0.2",
-    "save-dev": "0.0.1-security"
+    "save-dev": "0.0.1-security",
+    "stt-align-node": "^1.1.4"
   },
   "devDependencies": {
-    "@bbc/stt-align-node": "^1.1.0",
     "cheerio": "^1.0.0-rc.3",
     "download": "^7.1.0",
     "node-html-parser": "^1.1.16",
@@ -41,6 +41,10 @@
     "unzip": "^0.1.11",
     "xml-js": "^1.6.11",
     "zlib": "^1.0.5",
-    "subtitlescomposer": "git+https://github.com/pietrop/subtitlesComposer.git"
+    "subtitlescomposer": "git+https://github.com/pietrop/subtitlesComposer.git",
+    "ffmpeg-static-electron": "^2.0.1",
+    "ffprobe-static-electron": "^2.0.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "temp-dir": "^2.0.0"
   }
 }

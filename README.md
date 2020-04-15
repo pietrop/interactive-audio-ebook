@@ -42,3 +42,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
  <!-- https://docs.google.com/document/d/1-vl6xtxyHv7osN5B3NZ_T1QYiHfyJU158pOtASikkJQ/edit#heading=h.1d0v9z14nzx6
   -->
+
+
+  <!-- Dependeices
+  
+  you need to have aeneas installed on your system
+  link to dmg from subtitles composer app -->

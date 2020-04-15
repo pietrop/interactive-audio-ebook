@@ -1,4 +1,4 @@
-import {useState, useRef} from 'react';
+import {useState, useRef,useEffect} from 'react';
 import { useRouter } from 'next/router';
 import calculateWordDuration from '../../../utils/calculate-word-duration';
 const getData = async (id)=>{
@@ -9,13 +9,14 @@ const Chapter = () => {
   const router = useRouter()
   const { chapterId, bookId } = router.query
   const [chapterData, setChapterData] = useState();
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  // const [currentWordStartTime, setcurrentWordStartTime] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
   const [bookTitle, setBookTitle] = useState("");
   const audioRef = useRef();
   getData(bookId).then((res)=>{
-    console.log('data 59', res);
+    // console.log('data 59', res);
     // setBookData(res);
-    console.log('chapterId',chapterId)
+    // console.log('chapterId',chapterId)
     setBookTitle(res.title);
     // adjusting chapter id with array index
     const currentChapter = res.chapters[parseInt(chapterId)-1];
@@ -24,22 +25,35 @@ const Chapter = () => {
      console.error("couldn 't find book id", bookId)
    })
 
-   const handleTextClick = (e)=>{
-       const index = parseInt(e.target.id);
-       setCurrentWordIndex(index);
-    //    console.log()
-       const wordList = chapterData.text.split(' ');
-       const removeCount = wordList.length - index;
-       wordList.splice( index, removeCount )
-       const estimatedTimeOffset = wordList.reduce((total, word)=>{
-            const wordDuration = calculateWordDuration(word);
-            total += parseFloat(wordDuration);
-            return total;
-       }, 0)
+  //  audioRef && audioRef.current && audioRef.current
+  //  .addEventListener("timeupdate", (el)=>{
+  //    // console.log(el.target.currentTime)
+  //    if(typeof window !=='undefined'){
+  //      setCurrentTime(el.target.currentTime)
+  //    }    
+  //  });
 
-       console.log('estimatedTimeOffset',estimatedTimeOffset)
-       audioRef.current.currentTime  = estimatedTimeOffset;
-       audioRef.current.play()
+  useEffect(() => {
+
+    audioRef && audioRef.current && audioRef.current
+   .addEventListener("timeupdate", (el)=>{
+     // console.log(el.target.currentTime)
+     if(typeof window !=='undefined'){
+       setCurrentTime(el.target.currentTime)
+     }    
+   });
+
+  }, []);
+
+   const handleTextClick = (e)=>{
+      if(e.target.classList.contains('words')){
+        const index = parseFloat(parseFloat(e.target.dataset.start).toFixed(2));
+        console.log('index',index);
+        //  setcurrentWordStartTime(index);
+        setCurrentTime(index);
+        audioRef.current.currentTime  = index;
+        audioRef.current.play();
+      }
    }
 
 
@@ -75,30 +89,26 @@ return (<>
     left: 0px;
     width: 100%;
 }
-
-
-  .duration{
-    font-size: medium;
-}
   `}</style>
   <style jsx global>{`
  
   
   `}</style>
-    <h2>{chapterData && chapterData.title} - {bookTitle&&bookTitle} <span className="duration">{chapterData && chapterData.duration} </span></h2>
+    <h2>{chapterData && chapterData.title} - {bookTitle&&bookTitle}  <small className="text-muted"> {chapterData && chapterData.duration} </small></h2>
   
   <br/>
   <br/>
   {chapterData && ( <audio  ref={audioRef} src={chapterData.url} controls type={chapterData.type} /> )}
   <article onClick={handleTextClick}>
-    {chapterData && chapterData.text.split(' ').map((word, index)=>{ return <span className={["words", index <= currentWordIndex?  "past-words":"future-words"].join(' ')} id={index}>{word} </span>})}
+  
+    {chapterData &&  chapterData.words && chapterData.words.map((word, index)=>{ return <span className={["words", word.start <= currentTime?  "past-words":"future-words"].join(' ')} data-start={word.start} id={index}>{word.text} </span>})}
+    {/* Backup  */}
+    {chapterData &&  !chapterData.words && chapterData.text}
   </article>
   <br/>
   <br/>
   <br/>
   <br/>
-
-  
   </>)
 }
 

@@ -32,12 +32,18 @@ export default function MyApp({ Component, pageProps }) {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-            <Nav.Link href={`${basePath}/books`}>Books</Nav.Link>
-            {bookId? <Nav.Link href={`${basePath}/books/${bookId}`}>Current Book</Nav.Link> :null}
-            {/* TODO: Should not show if it's first chapter */}
-            {chapterId? <Nav.Link href={`${basePath}/books/${bookId}/${parseInt(chapterId)-1}`}>Previous Chapter</Nav.Link> :null}
-            {/* TODO: Should not show if it's last chapter */}
-            {chapterId? <Nav.Link href={`${basePath}/books/${bookId}/${parseInt(chapterId)+1}`}>Next Chapter</Nav.Link> :null}
+              <Nav.Link href={`${basePath}/books`}>Books</Nav.Link>
+              {bookId && chapterId? <Nav.Link href={`${basePath}/books/${bookId}`}>Current Book</Nav.Link> :null}
+            </Nav>
+        </Navbar.Collapse>
+
+        <Navbar.Collapse className="justify-content-end">
+            <Nav >
+              {/* TODO: Should not show if it's first chapter */}
+              {chapterId? <Nav.Link href={`${basePath}/books/${bookId}/${parseInt(chapterId)-1}`}>Previous Chapter</Nav.Link> :null}
+              {/* TODO: Should not show if it's last chapter */}
+              {chapterId? <Nav.Link href={`${basePath}/books/${bookId}/${parseInt(chapterId)+1}`}>Next Chapter</Nav.Link> :null}
+              <Nav.Link href="https://github.com/pietrop/interactive-audio-ebook" target="_blank" rel="noopener noreferrer">Github</Nav.Link>
             </Nav>
         </Navbar.Collapse>
         </Navbar>

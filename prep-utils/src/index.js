@@ -7,12 +7,13 @@ const cheerio = require('cheerio');
 const unzip = require('unzip');
 const Parser = require('rss-parser');
 const Book = require('./parse-gutemberg-book/index.js');
+const runAeneas = require('../aeneas-node/index.js');
+const transcribeAndAlign = require('./transcribe-and-align/index.js');
+
 // const convertAndTranscribe = require('pocketsphinx-stt').convertAndTranscribe;
 // const alignJSONText = require('@bbc/stt-align-node').alignJSONText;
 
 const parser = new Parser();
-
-
 /**
  * 
  * Helper function
@@ -189,7 +190,72 @@ async function main(librivoxBookId) {
     // const res = await downloadAudioFilesLocally(librivoxBookId,jsonData)
     // console.log('downloadAudioFilesLocally',res)
     // align text with audio to generate word level timings
-    return { gutembergId, ...audioEbookWithText} ;
+
+    const audioEbookWithTextAndGutembergId = { gutembergId, ...audioEbookWithText};
+
+    /**
+     * One Aeneas alignement
+     */
+    // const oneChapter = audioEbookWithTextAndGutembergId.chapters[0];
+    // // TODO: if needed can download audio file here 
+    // const sourceVideoPathSample = oneChapter.url;
+    // const captionFileFormat = 'json';
+    // const text = oneChapter.text;
+    // await runAeneas({text, captionFileFormat, sourceVideoPathSample})
+    //     .then((res)=>{
+    //         console.log('res runAeneas', res)
+    //         audioEbookWithTextAndGutembergId.chapters[0].json = res;
+    //         return res;
+    //     })
+
+    /**
+     * One chapter
+     */
+    // const oneChapter = audioEbookWithTextAndGutembergId.chapters[0];
+    // TODO: if needed can download audio file here 
+    // const sourceVideoPathSample = oneChapter.url;
+    // const captionFileFormat = 'json';
+    // const text = oneChapter.text;
+    // audioEbookWithTextAndGutembergId.chapters[0].json = res;
+
+    /**
+     * chapters no promoses - not working, returns a list of promises
+     */
+    // const audioEbookWithTextAndGutembergIdAligned =  audioEbookWithTextAndGutembergId.chapters.map( async (chapter)=>{
+    // const audioEbookWithTextAndGutembergIdAligned =  audioEbookWithTextAndGutembergId.chapters.slice(0, 2).map( async (chapter)=>{
+    //     const {words, paragraphs } = await transcribeAndAlign({ url: chapter.url, text: chapter.text}); 
+    //     chapter.words = words;
+    //     return chapter;
+    // })
+
+
+     /**
+     * chapters with promses
+     */
+    const promises = []
+    // audioEbookWithTextAndGutembergId.chapters.map( async (chapter)=>{
+         audioEbookWithTextAndGutembergId.chapters.slice(0,2).map( async (chapter)=>{
+        // const {words, paragraphs } = await transcribeAndAlign({ url: chapter.url, text: chapter.text}); 
+        promises.push(transcribeAndAlign({ url: chapter.url, text: chapter.text}))
+        // chapter.words = words;
+        // return chapter;
+    })
+    console.log('promises',promises)
+    // resolve promises
+    const transcribeAndAlignPromises = await Promise.all(promises)
+    console.log('transcribeAndAlignPromises',transcribeAndAlignPromises)
+    // .then(response => console.log(response)) 
+    // const audioEbookWithTextAndGutembergIdAligned = audioEbookWithTextAndGutembergId.chapters.map((chapter, index)=>{
+     audioEbookWithTextAndGutembergId.chapters = audioEbookWithTextAndGutembergId.chapters.slice(0,2).map((chapter, index)=>{
+       const {words, paragraphs} = transcribeAndAlignPromises[index];
+       chapter.words = words;
+        //  chapter.paragraphs = paragraphs;
+       return chapter;
+
+    })
+    console.log('audioEbookWithTextAndGutembergIdAligned',audioEbookWithTextAndGutembergId)
+    
+    return audioEbookWithTextAndGutembergId;
 }
 
 
