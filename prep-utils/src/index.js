@@ -245,7 +245,7 @@ async function main(librivoxBookId) {
     const transcribeAndAlignPromises = await Promise.all(promises)
     console.log('transcribeAndAlignPromises',transcribeAndAlignPromises)
     // .then(response => console.log(response)) 
-    const audioEbookWithTextAndGutembergIdAligned = audioEbookWithTextAndGutembergId.chapters.map((chapter, index)=>{
+    audioEbookWithTextAndGutembergId.chapters = audioEbookWithTextAndGutembergId.chapters.map((chapter, index)=>{
     //  audioEbookWithTextAndGutembergId.chapters = audioEbookWithTextAndGutembergId.chapters.slice(0,2).map((chapter, index)=>{
        const {words, paragraphs} = transcribeAndAlignPromises[index];
        chapter.words = words;
