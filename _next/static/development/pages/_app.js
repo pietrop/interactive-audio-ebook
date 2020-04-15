@@ -8178,72 +8178,97 @@ function MyApp(_ref) {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 35,
-      columnNumber: 13
+      columnNumber: 15
     }
-  }, "Books"), bookId ? __jsx(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_5__["default"].Link, {
+  }, "Books"), bookId && chapterId ? __jsx(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_5__["default"].Link, {
     href: "".concat(basePath, "/books/").concat(bookId),
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 36,
-      columnNumber: 22
+      columnNumber: 37
     }
-  }, "Current Book") : null, chapterId ? __jsx(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_5__["default"].Link, {
+  }, "Current Book") : null)), __jsx(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_4__["default"].Collapse, {
+    className: "justify-content-end",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 40,
+      columnNumber: 9
+    }
+  }, __jsx(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 41,
+      columnNumber: 13
+    }
+  }, chapterId ? __jsx(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_5__["default"].Link, {
     href: "".concat(basePath, "/books/").concat(bookId, "/").concat(parseInt(chapterId) - 1),
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
-      columnNumber: 25
+      lineNumber: 43,
+      columnNumber: 27
     }
   }, "Previous Chapter") : null, chapterId ? __jsx(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_5__["default"].Link, {
     href: "".concat(basePath, "/books/").concat(bookId, "/").concat(parseInt(chapterId) + 1),
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
-      columnNumber: 25
+      lineNumber: 45,
+      columnNumber: 27
     }
-  }, "Next Chapter") : null))), __jsx("br", {
+  }, "Next Chapter") : null, __jsx(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_5__["default"].Link, {
+    href: "https://github.com/pietrop/interactive-audio-ebook",
+    target: "_blank",
+    rel: "noopener noreferrer",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44,
+      lineNumber: 46,
+      columnNumber: 15
+    }
+  }, "Github")))), __jsx("br", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 50,
       columnNumber: 9
     }
   }), __jsx("br", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44,
+      lineNumber: 50,
       columnNumber: 14
     }
   }), __jsx("br", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44,
+      lineNumber: 50,
       columnNumber: 19
     }
   }), __jsx("br", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44,
+      lineNumber: 50,
       columnNumber: 24
     }
   }), __jsx(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_6__["default"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45,
+      lineNumber: 51,
       columnNumber: 9
     }
   }, __jsx(Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 52,
       columnNumber: 5
     }
   }))));
