@@ -6413,15 +6413,15 @@ var Home = function Home() {
       lineNumber: 19,
       columnNumber: 7
     }
-  }, "Interactive audio ebooks"), __jsx("p", {
-    className: "jsx-650010199" + " " + "lead text-center",
+  }, "Interactive audio ebooks"), __jsx("br", {
+    className: "jsx-650010199",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 20,
       columnNumber: 7
     }
-  }, "Bla bla some description of the proejct"), __jsx("br", {
+  }), __jsx("br", {
     className: "jsx-650010199",
     __self: _this,
     __source: {
@@ -6429,30 +6429,74 @@ var Home = function Home() {
       lineNumber: 21,
       columnNumber: 7
     }
+  }), __jsx("p", {
+    className: "jsx-650010199" + " " + "lead text-center",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22,
+      columnNumber: 7
+    }
+  }, "Combinging books from the Gutemberg book project and audio book version from Librivox"), __jsx("p", {
+    className: "jsx-650010199" + " " + "lead text-center",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22,
+      columnNumber: 128
+    }
+  }, " into a clickable follow along experience."), __jsx("br", {
+    className: "jsx-650010199",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23,
+      columnNumber: 7
+    }
   }), __jsx(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_6__["default"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 26,
       columnNumber: 7
     }
   }, __jsx(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_7__["default"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
+      lineNumber: 27,
       columnNumber: 9
     }
-  }, __jsx(react_bootstrap_Image__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    src: "https://via.placeholder.com/750x300",
-    fluid: true,
-    style: {
-      width: '100%'
-    },
+  }, __jsx("br", {
+    className: "jsx-650010199",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26,
+      lineNumber: 29,
+      columnNumber: 11
+    }
+  }), __jsx("br", {
+    className: "jsx-650010199",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 30,
+      columnNumber: 11
+    }
+  }), __jsx("br", {
+    className: "jsx-650010199",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 31,
+      columnNumber: 11
+    }
+  }), __jsx("br", {
+    className: "jsx-650010199",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 32,
       columnNumber: 11
     }
   }))), __jsx("br", {
@@ -6460,7 +6504,7 @@ var Home = function Home() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30,
+      lineNumber: 36,
       columnNumber: 7
     }
   }), __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
@@ -6468,17 +6512,17 @@ var Home = function Home() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32,
+      lineNumber: 38,
       columnNumber: 7
     }
   }, __jsx(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    variant: "primary",
+    variant: "outline-primary",
     size: "lg",
     block: true,
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 40,
       columnNumber: 9
     }
   }, "View the available books"))), __jsx("footer", {
@@ -6486,16 +6530,16 @@ var Home = function Home() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
+      lineNumber: 46,
       columnNumber: 5
     }
   }), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
     id: "1607256993",
     __self: _this
-  }, "\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9wYXNzYXJlbGxpcC9DT0RFL1BFUlNPTkFML2ludGVyYWN0aXZlLWF1ZGlvLWVib29rLW5leHRqcy9wYWdlcy9pbmRleC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUEwQ2dCIiwiZmlsZSI6Ii9Vc2Vycy9wYXNzYXJlbGxpcC9DT0RFL1BFUlNPTkFML2ludGVyYWN0aXZlLWF1ZGlvLWVib29rLW5leHRqcy9wYWdlcy9pbmRleC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBIZWFkIGZyb20gJ25leHQvaGVhZCc7XG5pbXBvcnQgTGluayBmcm9tICduZXh0L2xpbmsnO1xuaW1wb3J0IEJ1dHRvbiBmcm9tICdyZWFjdC1ib290c3RyYXAvQnV0dG9uJztcbmltcG9ydCBJbWFnZSBmcm9tICdyZWFjdC1ib290c3RyYXAvSW1hZ2UnO1xuaW1wb3J0IFJvdyBmcm9tICdyZWFjdC1ib290c3RyYXAvUm93JztcbmltcG9ydCBDb2wgZnJvbSAncmVhY3QtYm9vdHN0cmFwL0NvbCc7XG5pbXBvcnQgZ2V0Q29uZmlnIGZyb20gJ25leHQvY29uZmlnJztcbmNvbnN0IHsgcHVibGljUnVudGltZUNvbmZpZyB9ID0gZ2V0Q29uZmlnKCk7XG5jb25zdCBiYXNlUGF0aCA9IHB1YmxpY1J1bnRpbWVDb25maWcuYmFzZVBhdGg7XG5cbmNvbnN0IEhvbWUgPSAoKSA9PiAoXG4gIDxkaXYgY2xhc3NOYW1lPVwiY29udGFpbmVyXCI+XG4gICAgPEhlYWQ+XG4gICAgICB7LyogPHRpdGxlPkNyZWF0ZSBOZXh0IEFwcDwvdGl0bGU+ICovfVxuICAgICAgPGxpbmsgcmVsPVwiaWNvblwiIGhyZWY9XCIvZmF2aWNvbi5pY29cIiAvPlxuICAgIDwvSGVhZD5cblxuICAgIDxtYWluPlxuICAgICAgPGgxIGNsYXNzTmFtZT1cInRleHQtY2VudGVyXCI+SW50ZXJhY3RpdmUgYXVkaW8gZWJvb2tzPC9oMT5cbiAgICAgIDxwIGNsYXNzTmFtZT1cImxlYWQgdGV4dC1jZW50ZXJcIj5CbGEgYmxhIHNvbWUgZGVzY3JpcHRpb24gb2YgdGhlIHByb2VqY3Q8L3A+XG4gICAgICA8YnIvPlxuXG4gICAgICB7LyogPGltZyBjbGFzcz1cImNhcmQtaW1nLXRvcFwiIHNyYz1cImh0dHBzOi8vdmlhLnBsYWNlaG9sZGVyLmNvbS83NTBcIj48L2ltZz4gKi99XG4gICAgICA8Um93PlxuICAgICAgICA8Q29sPlxuICAgICAgICAgIDxJbWFnZSBzcmM9e1wiaHR0cHM6Ly92aWEucGxhY2Vob2xkZXIuY29tLzc1MHgzMDBcIn0gZmx1aWQgc3R5bGU9e3t3aWR0aDogJzEwMCUnfX0vPlxuXG4gICAgICAgIDwvQ29sPlxuICAgICAgPC9Sb3c+XG4gICAgICA8YnIvPlxuICAgICBcbiAgICAgIDxMaW5rIGhyZWY9e2Ake2Jhc2VQYXRofS9ib29rc2B9PlxuICAgICAgICB7LyogPGE+Qm9va3M8L2E+ICovfVxuICAgICAgICA8QnV0dG9uIHZhcmlhbnQ9XCJwcmltYXJ5XCIgc2l6ZT1cImxnXCIgYmxvY2s+XG4gICAgICAgICBWaWV3IHRoZSBhdmFpbGFibGUgYm9va3NcbiAgICAgICAgPC9CdXR0b24+XG4gICAgICA8L0xpbms+XG5cbiAgICA8L21haW4+XG4gICAgPGZvb3Rlcj5cbiBcbiAgICA8L2Zvb3Rlcj5cbiAgICA8c3R5bGUganN4PntgXG4gICAgIFxuICAgIGB9PC9zdHlsZT5cblxuICAgIDxzdHlsZSBqc3ggZ2xvYmFsPntgXG4gICAgXG4gICAgYH08L3N0eWxlPlxuICA8L2Rpdj5cbilcblxuZXhwb3J0IGRlZmF1bHQgSG9tZVxuIl19 */\n/*@ sourceURL=/Users/passarellip/CODE/PERSONAL/interactive-audio-ebook-nextjs/pages/index.js */"), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
+  }, "\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9wYXNzYXJlbGxpcC9DT0RFL1BFUlNPTkFML2ludGVyYWN0aXZlLWF1ZGlvLWVib29rLW5leHRqcy9wYWdlcy9pbmRleC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFnRGdCIiwiZmlsZSI6Ii9Vc2Vycy9wYXNzYXJlbGxpcC9DT0RFL1BFUlNPTkFML2ludGVyYWN0aXZlLWF1ZGlvLWVib29rLW5leHRqcy9wYWdlcy9pbmRleC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBIZWFkIGZyb20gJ25leHQvaGVhZCc7XG5pbXBvcnQgTGluayBmcm9tICduZXh0L2xpbmsnO1xuaW1wb3J0IEJ1dHRvbiBmcm9tICdyZWFjdC1ib290c3RyYXAvQnV0dG9uJztcbmltcG9ydCBJbWFnZSBmcm9tICdyZWFjdC1ib290c3RyYXAvSW1hZ2UnO1xuaW1wb3J0IFJvdyBmcm9tICdyZWFjdC1ib290c3RyYXAvUm93JztcbmltcG9ydCBDb2wgZnJvbSAncmVhY3QtYm9vdHN0cmFwL0NvbCc7XG5pbXBvcnQgZ2V0Q29uZmlnIGZyb20gJ25leHQvY29uZmlnJztcbmNvbnN0IHsgcHVibGljUnVudGltZUNvbmZpZyB9ID0gZ2V0Q29uZmlnKCk7XG5jb25zdCBiYXNlUGF0aCA9IHB1YmxpY1J1bnRpbWVDb25maWcuYmFzZVBhdGg7XG5cbmNvbnN0IEhvbWUgPSAoKSA9PiAoXG4gIDxkaXYgY2xhc3NOYW1lPVwiY29udGFpbmVyXCI+XG4gICAgPEhlYWQ+XG4gICAgICB7LyogPHRpdGxlPkNyZWF0ZSBOZXh0IEFwcDwvdGl0bGU+ICovfVxuICAgICAgPGxpbmsgcmVsPVwiaWNvblwiIGhyZWY9XCIvZmF2aWNvbi5pY29cIiAvPlxuICAgIDwvSGVhZD5cblxuICAgIDxtYWluPlxuICAgICAgPGgxIGNsYXNzTmFtZT1cInRleHQtY2VudGVyXCI+SW50ZXJhY3RpdmUgYXVkaW8gZWJvb2tzPC9oMT5cbiAgICAgIDxici8+XG4gICAgICA8YnIvPlxuICAgICAgPHAgY2xhc3NOYW1lPVwibGVhZCB0ZXh0LWNlbnRlclwiPkNvbWJpbmdpbmcgYm9va3MgZnJvbSB0aGUgR3V0ZW1iZXJnIGJvb2sgcHJvamVjdCBhbmQgYXVkaW8gYm9vayB2ZXJzaW9uIGZyb20gTGlicml2b3g8L3A+PHAgY2xhc3NOYW1lPVwibGVhZCB0ZXh0LWNlbnRlclwiPiBpbnRvIGEgY2xpY2thYmxlIGZvbGxvdyBhbG9uZyBleHBlcmllbmNlLjwvcD5cbiAgICAgIDxici8+XG5cbiAgICAgIHsvKiA8aW1nIGNsYXNzPVwiY2FyZC1pbWctdG9wXCIgc3JjPVwiaHR0cHM6Ly92aWEucGxhY2Vob2xkZXIuY29tLzc1MFwiPjwvaW1nPiAqL31cbiAgICAgIDxSb3c+XG4gICAgICAgIDxDb2w+XG4gICAgICAgICAgey8qIDxJbWFnZSBzcmM9e1wiaHR0cHM6Ly92aWEucGxhY2Vob2xkZXIuY29tLzc1MHgzMDBcIn0gZmx1aWQgc3R5bGU9e3t3aWR0aDogJzEwMCUnfX0vPiAqL31cbiAgICAgICAgICA8YnIvPlxuICAgICAgICAgIDxici8+XG4gICAgICAgICAgPGJyLz5cbiAgICAgICAgICA8YnIvPlxuXG4gICAgICAgIDwvQ29sPlxuICAgICAgPC9Sb3c+XG4gICAgICA8YnIvPlxuICAgICBcbiAgICAgIDxMaW5rIGhyZWY9e2Ake2Jhc2VQYXRofS9ib29rc2B9PlxuICAgICAgICB7LyogPGE+Qm9va3M8L2E+ICovfVxuICAgICAgICA8QnV0dG9uIHZhcmlhbnQ9XCJvdXRsaW5lLXByaW1hcnlcIiBzaXplPVwibGdcIiBibG9jaz5cbiAgICAgICAgIFZpZXcgdGhlIGF2YWlsYWJsZSBib29rc1xuICAgICAgICA8L0J1dHRvbj5cbiAgICAgIDwvTGluaz5cblxuICAgIDwvbWFpbj5cbiAgICA8Zm9vdGVyPlxuIFxuICAgIDwvZm9vdGVyPlxuICAgIDxzdHlsZSBqc3g+e2BcbiAgICAgXG4gICAgYH08L3N0eWxlPlxuXG4gICAgPHN0eWxlIGpzeCBnbG9iYWw+e2BcbiAgICBcbiAgICBgfTwvc3R5bGU+XG4gIDwvZGl2PlxuKVxuXG5leHBvcnQgZGVmYXVsdCBIb21lXG4iXX0= */\n/*@ sourceURL=/Users/passarellip/CODE/PERSONAL/interactive-audio-ebook-nextjs/pages/index.js */"), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
     id: "1771141567",
     __self: _this
-  }, "\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9wYXNzYXJlbGxpcC9DT0RFL1BFUlNPTkFML2ludGVyYWN0aXZlLWF1ZGlvLWVib29rLW5leHRqcy9wYWdlcy9pbmRleC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUE4Q3VCIiwiZmlsZSI6Ii9Vc2Vycy9wYXNzYXJlbGxpcC9DT0RFL1BFUlNPTkFML2ludGVyYWN0aXZlLWF1ZGlvLWVib29rLW5leHRqcy9wYWdlcy9pbmRleC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBIZWFkIGZyb20gJ25leHQvaGVhZCc7XG5pbXBvcnQgTGluayBmcm9tICduZXh0L2xpbmsnO1xuaW1wb3J0IEJ1dHRvbiBmcm9tICdyZWFjdC1ib290c3RyYXAvQnV0dG9uJztcbmltcG9ydCBJbWFnZSBmcm9tICdyZWFjdC1ib290c3RyYXAvSW1hZ2UnO1xuaW1wb3J0IFJvdyBmcm9tICdyZWFjdC1ib290c3RyYXAvUm93JztcbmltcG9ydCBDb2wgZnJvbSAncmVhY3QtYm9vdHN0cmFwL0NvbCc7XG5pbXBvcnQgZ2V0Q29uZmlnIGZyb20gJ25leHQvY29uZmlnJztcbmNvbnN0IHsgcHVibGljUnVudGltZUNvbmZpZyB9ID0gZ2V0Q29uZmlnKCk7XG5jb25zdCBiYXNlUGF0aCA9IHB1YmxpY1J1bnRpbWVDb25maWcuYmFzZVBhdGg7XG5cbmNvbnN0IEhvbWUgPSAoKSA9PiAoXG4gIDxkaXYgY2xhc3NOYW1lPVwiY29udGFpbmVyXCI+XG4gICAgPEhlYWQ+XG4gICAgICB7LyogPHRpdGxlPkNyZWF0ZSBOZXh0IEFwcDwvdGl0bGU+ICovfVxuICAgICAgPGxpbmsgcmVsPVwiaWNvblwiIGhyZWY9XCIvZmF2aWNvbi5pY29cIiAvPlxuICAgIDwvSGVhZD5cblxuICAgIDxtYWluPlxuICAgICAgPGgxIGNsYXNzTmFtZT1cInRleHQtY2VudGVyXCI+SW50ZXJhY3RpdmUgYXVkaW8gZWJvb2tzPC9oMT5cbiAgICAgIDxwIGNsYXNzTmFtZT1cImxlYWQgdGV4dC1jZW50ZXJcIj5CbGEgYmxhIHNvbWUgZGVzY3JpcHRpb24gb2YgdGhlIHByb2VqY3Q8L3A+XG4gICAgICA8YnIvPlxuXG4gICAgICB7LyogPGltZyBjbGFzcz1cImNhcmQtaW1nLXRvcFwiIHNyYz1cImh0dHBzOi8vdmlhLnBsYWNlaG9sZGVyLmNvbS83NTBcIj48L2ltZz4gKi99XG4gICAgICA8Um93PlxuICAgICAgICA8Q29sPlxuICAgICAgICAgIDxJbWFnZSBzcmM9e1wiaHR0cHM6Ly92aWEucGxhY2Vob2xkZXIuY29tLzc1MHgzMDBcIn0gZmx1aWQgc3R5bGU9e3t3aWR0aDogJzEwMCUnfX0vPlxuXG4gICAgICAgIDwvQ29sPlxuICAgICAgPC9Sb3c+XG4gICAgICA8YnIvPlxuICAgICBcbiAgICAgIDxMaW5rIGhyZWY9e2Ake2Jhc2VQYXRofS9ib29rc2B9PlxuICAgICAgICB7LyogPGE+Qm9va3M8L2E+ICovfVxuICAgICAgICA8QnV0dG9uIHZhcmlhbnQ9XCJwcmltYXJ5XCIgc2l6ZT1cImxnXCIgYmxvY2s+XG4gICAgICAgICBWaWV3IHRoZSBhdmFpbGFibGUgYm9va3NcbiAgICAgICAgPC9CdXR0b24+XG4gICAgICA8L0xpbms+XG5cbiAgICA8L21haW4+XG4gICAgPGZvb3Rlcj5cbiBcbiAgICA8L2Zvb3Rlcj5cbiAgICA8c3R5bGUganN4PntgXG4gICAgIFxuICAgIGB9PC9zdHlsZT5cblxuICAgIDxzdHlsZSBqc3ggZ2xvYmFsPntgXG4gICAgXG4gICAgYH08L3N0eWxlPlxuICA8L2Rpdj5cbilcblxuZXhwb3J0IGRlZmF1bHQgSG9tZVxuIl19 */\n/*@ sourceURL=/Users/passarellip/CODE/PERSONAL/interactive-audio-ebook-nextjs/pages/index.js */"));
+  }, "\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9wYXNzYXJlbGxpcC9DT0RFL1BFUlNPTkFML2ludGVyYWN0aXZlLWF1ZGlvLWVib29rLW5leHRqcy9wYWdlcy9pbmRleC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFvRHVCIiwiZmlsZSI6Ii9Vc2Vycy9wYXNzYXJlbGxpcC9DT0RFL1BFUlNPTkFML2ludGVyYWN0aXZlLWF1ZGlvLWVib29rLW5leHRqcy9wYWdlcy9pbmRleC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBIZWFkIGZyb20gJ25leHQvaGVhZCc7XG5pbXBvcnQgTGluayBmcm9tICduZXh0L2xpbmsnO1xuaW1wb3J0IEJ1dHRvbiBmcm9tICdyZWFjdC1ib290c3RyYXAvQnV0dG9uJztcbmltcG9ydCBJbWFnZSBmcm9tICdyZWFjdC1ib290c3RyYXAvSW1hZ2UnO1xuaW1wb3J0IFJvdyBmcm9tICdyZWFjdC1ib290c3RyYXAvUm93JztcbmltcG9ydCBDb2wgZnJvbSAncmVhY3QtYm9vdHN0cmFwL0NvbCc7XG5pbXBvcnQgZ2V0Q29uZmlnIGZyb20gJ25leHQvY29uZmlnJztcbmNvbnN0IHsgcHVibGljUnVudGltZUNvbmZpZyB9ID0gZ2V0Q29uZmlnKCk7XG5jb25zdCBiYXNlUGF0aCA9IHB1YmxpY1J1bnRpbWVDb25maWcuYmFzZVBhdGg7XG5cbmNvbnN0IEhvbWUgPSAoKSA9PiAoXG4gIDxkaXYgY2xhc3NOYW1lPVwiY29udGFpbmVyXCI+XG4gICAgPEhlYWQ+XG4gICAgICB7LyogPHRpdGxlPkNyZWF0ZSBOZXh0IEFwcDwvdGl0bGU+ICovfVxuICAgICAgPGxpbmsgcmVsPVwiaWNvblwiIGhyZWY9XCIvZmF2aWNvbi5pY29cIiAvPlxuICAgIDwvSGVhZD5cblxuICAgIDxtYWluPlxuICAgICAgPGgxIGNsYXNzTmFtZT1cInRleHQtY2VudGVyXCI+SW50ZXJhY3RpdmUgYXVkaW8gZWJvb2tzPC9oMT5cbiAgICAgIDxici8+XG4gICAgICA8YnIvPlxuICAgICAgPHAgY2xhc3NOYW1lPVwibGVhZCB0ZXh0LWNlbnRlclwiPkNvbWJpbmdpbmcgYm9va3MgZnJvbSB0aGUgR3V0ZW1iZXJnIGJvb2sgcHJvamVjdCBhbmQgYXVkaW8gYm9vayB2ZXJzaW9uIGZyb20gTGlicml2b3g8L3A+PHAgY2xhc3NOYW1lPVwibGVhZCB0ZXh0LWNlbnRlclwiPiBpbnRvIGEgY2xpY2thYmxlIGZvbGxvdyBhbG9uZyBleHBlcmllbmNlLjwvcD5cbiAgICAgIDxici8+XG5cbiAgICAgIHsvKiA8aW1nIGNsYXNzPVwiY2FyZC1pbWctdG9wXCIgc3JjPVwiaHR0cHM6Ly92aWEucGxhY2Vob2xkZXIuY29tLzc1MFwiPjwvaW1nPiAqL31cbiAgICAgIDxSb3c+XG4gICAgICAgIDxDb2w+XG4gICAgICAgICAgey8qIDxJbWFnZSBzcmM9e1wiaHR0cHM6Ly92aWEucGxhY2Vob2xkZXIuY29tLzc1MHgzMDBcIn0gZmx1aWQgc3R5bGU9e3t3aWR0aDogJzEwMCUnfX0vPiAqL31cbiAgICAgICAgICA8YnIvPlxuICAgICAgICAgIDxici8+XG4gICAgICAgICAgPGJyLz5cbiAgICAgICAgICA8YnIvPlxuXG4gICAgICAgIDwvQ29sPlxuICAgICAgPC9Sb3c+XG4gICAgICA8YnIvPlxuICAgICBcbiAgICAgIDxMaW5rIGhyZWY9e2Ake2Jhc2VQYXRofS9ib29rc2B9PlxuICAgICAgICB7LyogPGE+Qm9va3M8L2E+ICovfVxuICAgICAgICA8QnV0dG9uIHZhcmlhbnQ9XCJvdXRsaW5lLXByaW1hcnlcIiBzaXplPVwibGdcIiBibG9jaz5cbiAgICAgICAgIFZpZXcgdGhlIGF2YWlsYWJsZSBib29rc1xuICAgICAgICA8L0J1dHRvbj5cbiAgICAgIDwvTGluaz5cblxuICAgIDwvbWFpbj5cbiAgICA8Zm9vdGVyPlxuIFxuICAgIDwvZm9vdGVyPlxuICAgIDxzdHlsZSBqc3g+e2BcbiAgICAgXG4gICAgYH08L3N0eWxlPlxuXG4gICAgPHN0eWxlIGpzeCBnbG9iYWw+e2BcbiAgICBcbiAgICBgfTwvc3R5bGU+XG4gIDwvZGl2PlxuKVxuXG5leHBvcnQgZGVmYXVsdCBIb21lXG4iXX0= */\n/*@ sourceURL=/Users/passarellip/CODE/PERSONAL/interactive-audio-ebook-nextjs/pages/index.js */"));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Home);
