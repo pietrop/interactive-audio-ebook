@@ -4,32 +4,36 @@ import { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 const { publicRuntimeConfig } = getConfig();
 const basePath = publicRuntimeConfig.basePath;
+import booksIndex from '../../prep-utils/books-index.json'
 
 function Books() {
-  // http://www.gutenberg.org/ebooks/search/?query=tom+sawyer
-    const pids = ['59']
-    return (<><h2>Books</h2>
+
+    return (<>
+    <h2>Books</h2>
     <br/>
     <br/>
     <Row>
 
 
-    { pids.map(bookId => (
+    { booksIndex.map(book => (
         <Col>
-          <Link href={`${basePath}/books/[bookId]`} as={`${basePath}/books/${bookId}`}>
+          
             <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="https://via.placeholder.com/750" fluid />
+            <Card.Img variant="top" src={`https://www.gutenberg.org/files/${book.gutembergId}/${book.gutembergId}-h/images/bookcover.jpg`} fluid />
             <Card.Body>
-              <Card.Title> bookId {bookId} </Card.Title>
-              <Card.Text>
-                Description
+              <Card.Title> {book.title}</Card.Title>
+              <Card.Text title={book.description}>
+                {book.description.substr(0, 200)}...
               </Card.Text>
-              {/* <Button variant="primary">Listen/Read</Button> */}
+              <Link href={`${basePath}/books/[bookId]`} as={`${basePath}/books/${book.librivoxBookId}`}>
+               <Button variant="primary" block>Listen/Read</Button>
+              </Link>
             </Card.Body>
             </Card>
-          </Link>
+  
           <br/>
         </Col>
       ))
@@ -41,3 +45,5 @@ function Books() {
   }
   
   export default Books
+
+

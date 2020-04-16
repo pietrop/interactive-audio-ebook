@@ -193,6 +193,10 @@ async function main(librivoxBookId) {
 
     const audioEbookWithTextAndGutembergId = { gutembergId, ...audioEbookWithText};
 
+    // `https://www.gutenberg.org/files/${bookData.gutembergId}/${bookData.gutembergId}-h/images/bookcover.jpg`
+    // `https://www.gutenberg.org/files/${bookData.gutembergId}/${bookData.gutembergId}-h/images/frontispiece.jpg`
+    // `https://www.gutenberg.org/files/${bookData.gutembergId}/${bookData.gutembergId}-h/images/titlepage.jpg`
+
     /**
      * One Aeneas alignement
      */
