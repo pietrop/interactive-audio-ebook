@@ -17,13 +17,19 @@ const Home = () => (
 
     <main>
       <h1 className="text-center">Interactive audio ebooks</h1>
-      <p className="lead text-center">Bla bla some description of the proejct</p>
+      <br/>
+      <br/>
+      <p className="lead text-center">Combinging books from the Gutemberg book project and audio book version from Librivox</p><p className="lead text-center"> into a clickable follow along experience.</p>
       <br/>
 
       {/* <img class="card-img-top" src="https://via.placeholder.com/750"></img> */}
       <Row>
         <Col>
-          <Image src={"https://via.placeholder.com/750x300"} fluid style={{width: '100%'}}/>
+          {/* <Image src={"https://via.placeholder.com/750x300"} fluid style={{width: '100%'}}/> */}
+          <br/>
+          <br/>
+          <br/>
+          <br/>
 
         </Col>
       </Row>
@@ -31,7 +37,7 @@ const Home = () => (
      
       <Link href={`${basePath}/books`}>
         {/* <a>Books</a> */}
-        <Button variant="primary" size="lg" block>
+        <Button variant="outline-primary" size="lg" block>
          View the available books
         </Button>
       </Link>
