@@ -3536,6 +3536,76 @@ exports.encode = exports.stringify = __webpack_require__(/*! ./encode */ "./node
 
 /***/ }),
 
+/***/ "./node_modules/react-bootstrap/esm/Button.js":
+/*!****************************************************!*\
+  !*** ./node_modules/react-bootstrap/esm/Button.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _ThemeProvider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ThemeProvider */ "./node_modules/react-bootstrap/esm/ThemeProvider.js");
+/* harmony import */ var _SafeAnchor__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./SafeAnchor */ "./node_modules/react-bootstrap/esm/SafeAnchor.js");
+
+
+
+
+
+
+var defaultProps = {
+  variant: 'primary',
+  active: false,
+  disabled: false,
+  type: 'button'
+};
+var Button = react__WEBPACK_IMPORTED_MODULE_3___default.a.forwardRef(function (_ref, ref) {
+  var bsPrefix = _ref.bsPrefix,
+      variant = _ref.variant,
+      size = _ref.size,
+      active = _ref.active,
+      className = _ref.className,
+      block = _ref.block,
+      type = _ref.type,
+      as = _ref.as,
+      props = Object(_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__["default"])(_ref, ["bsPrefix", "variant", "size", "active", "className", "block", "type", "as"]);
+
+  var prefix = Object(_ThemeProvider__WEBPACK_IMPORTED_MODULE_4__["useBootstrapPrefix"])(bsPrefix, 'btn');
+  var classes = classnames__WEBPACK_IMPORTED_MODULE_2___default()(className, prefix, active && 'active', prefix + "-" + variant, block && prefix + "-block", size && prefix + "-" + size);
+
+  if (props.href) {
+    return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_SafeAnchor__WEBPACK_IMPORTED_MODULE_5__["default"], Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props, {
+      as: as,
+      ref: ref,
+      className: classnames__WEBPACK_IMPORTED_MODULE_2___default()(classes, props.disabled && 'disabled')
+    }));
+  }
+
+  if (ref) {
+    props.ref = ref;
+  }
+
+  if (!as) {
+    props.type = type;
+  }
+
+  var Component = as || 'button';
+  return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props, {
+    className: classes
+  }));
+});
+Button.displayName = 'Button';
+Button.defaultProps = defaultProps;
+/* harmony default export */ __webpack_exports__["default"] = (Button);
+
+/***/ }),
+
 /***/ "./node_modules/react-bootstrap/esm/Card.js":
 /*!**************************************************!*\
   !*** ./node_modules/react-bootstrap/esm/Card.js ***!
@@ -3810,6 +3880,93 @@ Row.defaultProps = defaultProps;
 
 /***/ }),
 
+/***/ "./node_modules/react-bootstrap/esm/SafeAnchor.js":
+/*!********************************************************!*\
+  !*** ./node_modules/react-bootstrap/esm/SafeAnchor.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _createChainedFunction__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./createChainedFunction */ "./node_modules/react-bootstrap/esm/createChainedFunction.js");
+
+
+
+
+
+function isTrivialHref(href) {
+  return !href || href.trim() === '#';
+}
+/**
+ * There are situations due to browser quirks or Bootstrap CSS where
+ * an anchor tag is needed, when semantically a button tag is the
+ * better choice. SafeAnchor ensures that when an anchor is used like a
+ * button its accessible. It also emulates input `disabled` behavior for
+ * links, which is usually desirable for Buttons, NavItems, DropdownItems, etc.
+ */
+
+
+var SafeAnchor = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function (_ref, ref) {
+  var _ref$as = _ref.as,
+      Component = _ref$as === void 0 ? 'a' : _ref$as,
+      disabled = _ref.disabled,
+      onKeyDown = _ref.onKeyDown,
+      props = Object(_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__["default"])(_ref, ["as", "disabled", "onKeyDown"]);
+
+  var handleClick = function handleClick(event) {
+    var href = props.href,
+        onClick = props.onClick;
+
+    if (disabled || isTrivialHref(href)) {
+      event.preventDefault();
+    }
+
+    if (disabled) {
+      event.stopPropagation();
+      return;
+    }
+
+    if (onClick) {
+      onClick(event);
+    }
+  };
+
+  var handleKeyDown = function handleKeyDown(event) {
+    if (event.key === ' ') {
+      event.preventDefault();
+      handleClick(event);
+    }
+  };
+
+  if (isTrivialHref(props.href)) {
+    props.role = props.role || 'button'; // we want to make sure there is a href attribute on the node
+    // otherwise, the cursor incorrectly styled (except with role='button')
+
+    props.href = props.href || '#';
+  }
+
+  if (disabled) {
+    props.tabIndex = -1;
+    props['aria-disabled'] = true;
+  }
+
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    ref: ref
+  }, props, {
+    onClick: handleClick,
+    onKeyDown: Object(_createChainedFunction__WEBPACK_IMPORTED_MODULE_3__["default"])(handleKeyDown, onKeyDown)
+  }));
+});
+SafeAnchor.displayName = 'SafeAnchor';
+/* harmony default export */ __webpack_exports__["default"] = (SafeAnchor);
+
+/***/ }),
+
 /***/ "./node_modules/react-bootstrap/esm/ThemeProvider.js":
 /*!***********************************************************!*\
   !*** ./node_modules/react-bootstrap/esm/ThemeProvider.js ***!
@@ -3876,6 +4033,52 @@ function createBootstrapComponent(Component, opts) {
 
 
 /* harmony default export */ __webpack_exports__["default"] = (ThemeProvider);
+
+/***/ }),
+
+/***/ "./node_modules/react-bootstrap/esm/createChainedFunction.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/react-bootstrap/esm/createChainedFunction.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/**
+ * Safe chained function
+ *
+ * Will only create a new function if needed,
+ * otherwise will pass back existing functions or null.
+ *
+ * @param {function} functions to chain
+ * @returns {function|null}
+ */
+function createChainedFunction() {
+  for (var _len = arguments.length, funcs = new Array(_len), _key = 0; _key < _len; _key++) {
+    funcs[_key] = arguments[_key];
+  }
+
+  return funcs.filter(function (f) {
+    return f != null;
+  }).reduce(function (acc, f) {
+    if (typeof f !== 'function') {
+      throw new Error('Invalid Argument Type, must only provide functions, undefined, or null.');
+    }
+
+    if (acc === null) return f;
+    return function chainedFunction() {
+      for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+        args[_key2] = arguments[_key2];
+      }
+
+      acc.apply(this, args);
+      f.apply(this, args);
+    };
+  }, null);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (createChainedFunction);
 
 /***/ }),
 
@@ -4990,9 +5193,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-bootstrap/Row */ "./node_modules/react-bootstrap/esm/Row.js");
 /* harmony import */ var react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-bootstrap/Col */ "./node_modules/react-bootstrap/esm/Col.js");
 /* harmony import */ var react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-bootstrap/Card */ "./node_modules/react-bootstrap/esm/Card.js");
+/* harmony import */ var react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-bootstrap/Button */ "./node_modules/react-bootstrap/esm/Button.js");
+/* harmony import */ var _prep_utils_books_index_json__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../prep-utils/books-index.json */ "./prep-utils/books-index.json");
+var _prep_utils_books_index_json__WEBPACK_IMPORTED_MODULE_7___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../../prep-utils/books-index.json */ "./prep-utils/books-index.json", 1);
 var _jsxFileName = "/Users/passarellip/CODE/PERSONAL/interactive-audio-ebook-nextjs/pages/books/index.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -5005,55 +5212,45 @@ var _getConfig = next_config__WEBPACK_IMPORTED_MODULE_2___default()(),
 
 var basePath = publicRuntimeConfig.basePath;
 
+
 function Books() {
   var _this = this;
 
-  // http://www.gutenberg.org/ebooks/search/?query=tom+sawyer
-  var pids = ['59'];
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("h2", {
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 13,
-      columnNumber: 15
-    }
-  }, "Books"), __jsx("br", {
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 14,
-      columnNumber: 5
-    }
-  }), __jsx("br", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 15,
       columnNumber: 5
     }
-  }), __jsx(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, "Books"), __jsx("br", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 16,
       columnNumber: 5
     }
-  }, pids.map(function (bookId) {
+  }), __jsx("br", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17,
+      columnNumber: 5
+    }
+  }), __jsx(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18,
+      columnNumber: 5
+    }
+  }, _prep_utils_books_index_json__WEBPACK_IMPORTED_MODULE_7__.map(function (book) {
     return __jsx(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_4__["default"], {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 20,
+        lineNumber: 22,
         columnNumber: 9
-      }
-    }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      href: "".concat(basePath, "/books/[bookId]"),
-      as: "".concat(basePath, "/books/").concat(bookId),
-      __self: _this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 21,
-        columnNumber: 11
       }
     }, __jsx(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__["default"], {
       style: {
@@ -5062,45 +5259,64 @@ function Books() {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 22,
+        lineNumber: 24,
         columnNumber: 13
       }
     }, __jsx(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__["default"].Img, {
       variant: "top",
-      src: "https://via.placeholder.com/750",
+      src: "https://www.gutenberg.org/files/".concat(book.gutembergId, "/").concat(book.gutembergId, "-h/images/bookcover.jpg"),
       fluid: true,
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 23,
+        lineNumber: 25,
         columnNumber: 13
       }
     }), __jsx(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__["default"].Body, {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 24,
+        lineNumber: 26,
         columnNumber: 13
       }
     }, __jsx(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__["default"].Title, {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25,
+        lineNumber: 27,
         columnNumber: 15
       }
-    }, " bookId ", bookId, " "), __jsx(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__["default"].Text, {
+    }, " ", book.title), __jsx(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__["default"].Text, {
+      title: book.description,
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26,
+        lineNumber: 28,
         columnNumber: 15
       }
-    }, "Description")))), __jsx("br", {
+    }, book.description.substr(0, 200), "..."), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      href: "".concat(basePath, "/books/[bookId]"),
+      as: "".concat(basePath, "/books/").concat(book.librivoxBookId),
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 33,
+        lineNumber: 31,
+        columnNumber: 15
+      }
+    }, __jsx(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      variant: "primary",
+      block: true,
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 32,
+        columnNumber: 16
+      }
+    }, "Listen/Read")))), __jsx("br", {
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 37,
         columnNumber: 11
       }
     }));
@@ -5108,6 +5324,17 @@ function Books() {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Books);
+
+/***/ }),
+
+/***/ "./prep-utils/books-index.json":
+/*!*************************************!*\
+  !*** ./prep-utils/books-index.json ***!
+  \*************************************/
+/*! exports provided: 0, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("[{\"title\":\"Adventures of Huckleberry Finn by TWAIN, Mark\",\"description\":\"Adventures of Huckleberry Finn (1884) by Mark Twain is one of the truly great American novels, beloved by children, adults, and literary critics alike.  The book tells the story of “Huck” Finn (first introduced as Tom Sawyer’s sidekick in The Adventures of Tom Sawyer), his friend Jim, and their journey down the Mississippi River on a raft.  Both are on the run, Huck from his drunk and abusive father, and Jim as a runaway slave.\\nAs Huck and Jim drift down the river, they meet many colorful characters and have many great adventures.  The true heart of the story, however, is the friendship between Huck and Jim.  A constant theme throughout the book is Huck’s internal struggle between what he has been taught, that helping a runaway slave is a sin, and what he truly believes, that Jim is a good man and it couldn’t possibly be wrong to help him.\\nAdventures of Huckleberry Finn was unique at the time of its publication (1884) because it is narrated by Huck himself and is written in the numerous dialects common in the area and time in which the book is set.  Although the book was originally intended as a sequel to the children’s book The Adventures of Tom Sawyer, as Twain wrote Adventures of Huckleberry Finn it progressed into a more serious work.  Twain’s views on slavery and other social issues of the time become clear through the words, thoughts, and actions of Huck Finn.  The book has always been the subject of great controversy, and according to The American Library Association it was fifth on the list of most frequently challenged books in the 1990s.(Summary by Annie Coleman)\",\"gutembergId\":76,\"librivoxBookId\":59}]");
 
 /***/ }),
 

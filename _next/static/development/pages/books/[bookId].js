@@ -5065,7 +5065,7 @@ module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!************************************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fbooks%2F%5BbookId%5D&absolutePagePath=%2FUsers%2Fpassarellip%2FCODE%2FPERSONAL%2Finteractive-audio-ebook-nextjs%2Fpages%2Fbooks%2F%5BbookId%5D.js ***!
   \************************************************************************************************************************************************************************************************/
@@ -5088,5 +5088,5 @@ module.exports = dll_2adc2403d89adc16ead0;
 
 /***/ })
 
-},[[4,"static/runtime/webpack.js"]]]);
+},[[3,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=[bookId].js.map
